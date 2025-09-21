@@ -1,5 +1,4 @@
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router";
-import { useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router";
 import "./App.css";
 import HomePage from "./pages/Home";
 import PageNotFound from "./pages/404";
@@ -8,24 +7,9 @@ import ContactPage from "./pages/Contact";
 import NodeJsDevPage from "./pages/ServiceLandingPage/NodeJsDev";
 import FullStackDev from "./pages/ServiceLandingPage/FullStackDev";
 
-// function RedirectHandler() {
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     const params = new URLSearchParams(window.location.search);
-//     const path = params.get("p");
-//     if (path) {
-//       navigate(path, { replace: true });
-//     }
-//   }, [navigate]);
-
-//   return null;
-// }
-
 function App() {
   return (
     <BrowserRouter basename={BASE_URL}>
-      {/* <RedirectHandler /> */}
       <Routes>
         <Route index path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
