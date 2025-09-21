@@ -7,9 +7,9 @@ const BASE_URL = process.env.NETLIFY ? "https://pranav-dev.netlify.app/" : "http
 // List your routes here
 const pages = [
   { url: "", changefreq: "monthly", priority: 1.0 },
-  { url: "./contact", changefreq: "monthly", priority: 0.8 },
-  { url: "./nodejs-developer", changefreq: "monthly", priority: 0.8 },
-  { url: "./fullstack-developer", changefreq: "monthly", priority: 0.8 },
+  { url: "contact", changefreq: "monthly", priority: 0.8 },
+  { url: "nodejs-developer", changefreq: "monthly", priority: 0.8 },
+  { url: "fullstack-developer", changefreq: "monthly", priority: 0.8 },
 ];
 
 async function generateSitemap() {
