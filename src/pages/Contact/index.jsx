@@ -25,7 +25,7 @@ function ContactPage() {
           </Link>
         </p>
 
-        <form netlify method="POST" className="w-full max-w-md bg-gray-100 dark:bg-gray-800 p-6 rounded-2xl shadow-lg space-y-4">
+        <form netlify="true" method="POST" className="w-full max-w-md bg-gray-100 dark:bg-gray-800 p-6 rounded-2xl shadow-lg space-y-4">
           <input type="hidden" name="form-name" value="contact" />
           <div>
             <label className="block text-gray-700 dark:text-gray-300 mb-2">Name</label>
