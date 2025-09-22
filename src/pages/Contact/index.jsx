@@ -12,11 +12,12 @@ function ContactPage() {
       <meta name="keywords" content="contact freelance developer London, Southampton, Woolston, hire freelancer near London, web developer contact, PHP WordPress React Node.js freelancer" />
 
       {/* ✅ Page Container */}
-      <div className="bg-white dark:bg-gray-900 transition-colors duration-300 min-h-screen">
-        {/* Dark Mode Toggle */}
-        <button onClick={toggleTheme} className="fixed top-4 right-4 z-50 p-2.5 bg-gray-200 rounded-full dark:bg-gray-800 shadow-lg hover:scale-110 transition-transform duration-200 text-xl" aria-label="Toggle dark mode">
+      <div className="bg-white dark:bg-gray-800 transition-colors duration-300 min-h-screen">
+        {/* Dark Mode Toggle Button - Fixed top right */}
+        <button onClick={toggleTheme} className="fixed top-6 right-6 z-50 p-3 bg-gray-200 rounded-full dark:bg-gray-900 shadow-lg hover:scale-110 transition-transform duration-200 text-2xl" aria-label="Toggle dark mode">
           {theme === "light" ? "🌙" : "☀️"}
         </button>
+
         <div className="px-6 pt-16 text-center max-w-4xl mx-auto">
           <div className="text-center md:text-left">
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Contact Me</h1>
