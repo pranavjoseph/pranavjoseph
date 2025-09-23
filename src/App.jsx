@@ -6,12 +6,14 @@ import { BASE_URL } from "./utils/constants";
 import ContactPage from "./pages/Contact";
 import NodeJsDevPage from "./pages/ServiceLandingPage/NodeJsDev";
 import FullStackDev from "./pages/ServiceLandingPage/FullStackDev";
+import AboutPage from "./pages/About";
 
 function App() {
   return (
     <BrowserRouter basename={BASE_URL}>
       <Routes>
         <Route index path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
 
         <Route path="/nodejs-developer" element={<NodeJsDevPage />} />
