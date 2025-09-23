@@ -46,18 +46,21 @@ function ContactPage() {
                   <span className="text-lg">💼</span>
                   <span>LinkedIn Profile</span>
                 </a>
-                <div className="flex items-center space-x-3 text-gray-700 dark:text-gray-300">
-                  <span className="text-lg">📍</span>
+                <a href="https://maps.app.goo.gl/hNonoCZM836a3KxK8" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <span className="relative inline-block">
+                    <span className="text-lg ">📍</span>
+                    <span className="absolute inset-0 h-full w-full animate-ping rounded-full bg-red-400 opacity-20"></span>
+                  </span>
                   <span>Southampton, UK</span>
-                </div>
-                <div className="flex items-center space-x-3 text-gray-700 dark:text-gray-300">
-                  <span className="text-lg">⏰</span>
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=447979652283&text=Hi+Pranav%0D%0ALets+connect!" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <span className="text-lg animate-bounce">💭</span>
                   <span>Response within 24 hours</span>
-                </div>
-                <div className="flex items-center space-x-3 text-gray-700 dark:text-gray-300">
-                  <span className="text-lg">🌍</span>
-                  <span>Available for remote work across UK & Europe</span>
-                </div>
+                </a>
+                <a href="mailto:pranavjoseph69@gmail.com" className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <span className="text-lg motion-safe:animate-spin">🌍</span>
+                  <span>Available for work across UK & Europe</span>
+                </a>
               </div>
             </div>
           </div>
