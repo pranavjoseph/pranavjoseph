@@ -52,6 +52,7 @@ function AboutPage() {
             <div>
               <h3 className="text-xl font-semibold">Senior Software Developer – Bridge Global</h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">Jan 2022 – Present | Remote & Onsite, Kochi</p>
+              <iframe className="mt-2 w-full h-[500px] rounded-sm" style={{"overflow":"hidden"}} src="https://www.linkedin.com/embed/feed/update/urn:li:share:7217405986481848320?collapsed=1" allowFullScreen="" title="Star Performer"></iframe>
               <ul className="list-disc list-inside mt-2 space-y-1 text-gray-700 dark:text-gray-300">
                 <li>Led frontend projects with React.js and Vue.</li>
                 <li>Designed & developed REST APIs using Laravel & Node.js.</li>
