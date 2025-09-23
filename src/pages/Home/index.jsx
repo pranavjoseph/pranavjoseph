@@ -18,7 +18,7 @@ function HomePage() {
 
       {/* Main Content */}
       <header className="flex flex-col justify-center items-center h-screen text-center bg-white dark:bg-gray-800 transition-colors duration-300">
-        <Link to="/contact">
+        <Link to="/about">
           <h1 className="text-5xl font-extrabold text-blue-800 dark:text-blue-200 mb-4 cursor-pointer">
             Hello, I'm Pranav Joseph{" "}
             <span role="img" aria-label="waving hand" className="inline-block animate-wave origin-[70%_70%]">
@@ -28,7 +28,11 @@ function HomePage() {
         </Link>
         {/* <Link to="/contact" > */}
         <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors duration-200 cursor-pointer">
-          <Link to="/nodejs-developer">Software Developer</Link> | Tech Enthusiast | <Link to="/fullstack-developer">Full-Stack Developer</Link> | Future Dad <span className="animate-pulse">❤️</span>
+          <Link to="/nodejs-developer">Software Developer</Link> | <Link to="/about">Tech Enthusiast</Link> | <Link to="/fullstack-developer">Full-Stack Developer</Link> |
+          <Link to="/about">
+            &nbsp;Future Dad
+            <span className="animate-pulse">❤️</span>
+          </Link>
         </p>
         {/* </Link> */}
 
