@@ -4,10 +4,6 @@ import { useTheme } from "../../components/ThemeProvider";
 function HomePage() {
   const { theme, toggleTheme } = useTheme();
 
-  function redirectToLinkedIn() {
-    window.open("https://www.linkedin.com/in/pranav-joseph/", "_blank");
-  }
-
   return (
     <>
       {/* SEO Tags */}
@@ -31,8 +27,8 @@ function HomePage() {
           </h1>
         </Link>
         {/* <Link to="/contact" > */}
-        <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors duration-200 cursor-pointer" onClick={redirectToLinkedIn}>
-          Software Developer | Tech Enthusiast | Full-Stack Developer | Future Dad <span className="animate-pulse">❤️</span>
+        <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors duration-200 cursor-pointer">
+          <Link to="/nodejs-developer">Software Developer</Link> | Tech Enthusiast | <Link to="/fullstack-developer">Full-Stack Developer</Link> | Future Dad <span className="animate-pulse">❤️</span>
         </p>
         {/* </Link> */}
 
