@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Smooth transitions for dark mode */
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
-
+/* Custom cursor using an emoji */
+body {
+  cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' height='32' width='32'><text y='24' font-size='24'>🪄</text></svg>") 0 24, auto;
+}
 /* Wave animation keyframes */
 @keyframes wave {
   0% {
