@@ -1,8 +1,39 @@
 import { Link } from "react-router-dom";
 import { useTheme } from "../../components/ThemeProvider";
+import { useState } from "react";
 
 function ContactPage() {
   const { theme, toggleTheme } = useTheme();
+  const [formData, setFormData] = useState({
+    "form-name": "contact",
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
+  // Encode form data for Netlify or other backends
+  const encode = (data) =>
+    Object.keys(data)
+      .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...formData }),
+    })
+      .then(() => {
+        setSubmitted(true); // hide form, show success
+      })
+      .catch((error) => {
+        console.error("Form submission error:", error);
+        alert("Oops! Something went wrong.");
+      });
+  };
 
   return (
     <>
@@ -67,41 +98,37 @@ function ContactPage() {
 
           {/* RIGHT SIDE - Contact Form */}
           <div className="min-w-0">
-            <form name="contact" method="POST" data-netlify="true" className="bg-gray-100 dark:bg-gray-800 p-5 rounded-xl shadow-lg space-y-4">
-              {/* Hidden Netlify input */}
-              <input type="hidden" name="form-name" value="contact" />
+            {!submitted ? (
+              <form onSubmit={handleSubmit} name="contact" method="POST" data-netlify="true" className="bg-gray-100 dark:bg-gray-800 p-5 rounded-xl shadow-lg space-y-4">
+                {/* Hidden Netlify input */}
+                <input type="hidden" name="form-name" value="contact" />
 
-              <div>
-                <label className="block text-gray-700 dark:text-gray-300 mb-2 font-medium text-sm">Name *</label>
-                <input type="text" name="name" required className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-sm" placeholder="Your name" />
+                <div>
+                  <label className="block text-gray-700 dark:text-gray-300 mb-2 font-medium text-sm">Name *</label>
+                  <input type="text" name="name" required className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-sm" placeholder="Your name" onChange={handleChange} />
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 dark:text-gray-300 mb-2 font-medium text-sm">Email *</label>
+                  <input type="email" name="email" required className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-sm" placeholder="your@email.com" onChange={handleChange} />
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 dark:text-gray-300 mb-2 font-medium text-sm">Message *</label>
+                  <textarea name="message" rows="3" required className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none text-sm" placeholder="Tell me about your project..." onChange={handleChange}></textarea>
+                </div>
+
+                <button type="submit" className="w-full bg-blue-600 text-white py-2.5 px-4 rounded-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm">
+                  Send Message 🚀
+                </button>
+              </form>
+            ) : (
+              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg shadow-lg" role="alert">
+                <strong className="font-bold">Thank you!</strong>
+                <span className="block sm:inline"> Your message has been sent. I'll get back to you soon. 😊</span>
               </div>
-
-              <div>
-                <label className="block text-gray-700 dark:text-gray-300 mb-2 font-medium text-sm">Email *</label>
-                <input type="email" name="email" required className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-sm" placeholder="your@email.com" />
-              </div>
-
-              <div>
-                <label className="block text-gray-700 dark:text-gray-300 mb-2 font-medium text-sm">Project Type</label>
-                <select name="project-type" className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-sm">
-                  <option value="">Select project type</option>
-                  <option value="fullstack">Full Stack Development</option>
-                  <option value="nodejs">Node.js Backend</option>
-                  <option value="wordpress">WordPress Development</option>
-                  <option value="seo">SEO Consulting</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-gray-700 dark:text-gray-300 mb-2 font-medium text-sm">Message *</label>
-                <textarea name="message" rows="3" required className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none text-sm" placeholder="Tell me about your project..."></textarea>
-              </div>
-
-              <button type="submit" className="w-full bg-blue-600 text-white py-2.5 px-4 rounded-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm">
-                Send Message 🚀
-              </button>
-            </form>
+            )}
+            {/* End of RIGHT SIDE - Contact Form */}
           </div>
         </div>
       </div>
