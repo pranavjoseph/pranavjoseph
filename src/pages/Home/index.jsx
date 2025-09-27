@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTheme } from "../../components/ThemeProvider";
+import BackgroundCanvas from "../../components/BackgroundCanvas";
 
 function HomePage() {
   const { theme, toggleTheme } = useTheme();
@@ -17,7 +18,8 @@ function HomePage() {
       </button>
 
       {/* Main Content */}
-      <header className="flex flex-col justify-center items-center h-screen text-center bg-white dark:bg-gray-800 transition-colors duration-300">
+      <header className="relative flex flex-col justify-center items-center h-screen text-center transition-colors duration-300">
+        <BackgroundCanvas />
         <Link to="/about">
           <h1 className="text-5xl font-extrabold text-blue-800 dark:text-blue-200 mb-4 cursor-pointer">
             Hello, I'm Pranav Joseph{" "}
