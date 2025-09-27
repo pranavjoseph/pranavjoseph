@@ -31,3 +31,6 @@ You’ll find me gaming, watching tech content, or dabbling in trading charts. I
 
   ## 💰 You can help me by Donating
   [![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/pranavjoseph) 
+
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/98ffaed0-2c32-442e-a266-906b597d1fbc/deploy-status)](https://app.netlify.com/projects/pranav-dev/deploys)
