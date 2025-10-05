@@ -11,28 +11,35 @@ function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
-  // Encode form data for Netlify or other backends
-  const encode = (data) =>
-    Object.keys(data)
-      .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  const handleSubmit = (e) => {
+  const [isSending, setIsSending] = useState(false);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSending(true);
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...formData }),
-    })
-      .then(() => {
-        setSubmitted(true); // hide form, show success
-      })
-      .catch((error) => {
-        console.error("Form submission error:", error);
-        alert("Oops! Something went wrong.");
+    try {
+      const response = await fetch("https://formspree.io/f/mkgvjlqk", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        alert("Oops! There was a problem submitting your form.");
+      }
+    } catch (error) {
+      alert("Oops! Something went wrong.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -118,8 +125,8 @@ function ContactPage() {
                   <textarea name="message" rows="3" required className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none text-sm" placeholder="Tell me about your project..." onChange={handleChange}></textarea>
                 </div>
 
-                <button type="submit" className="w-full bg-blue-600 text-white py-2.5 px-4 rounded-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm">
-                  Send Message 🚀
+                <button type="submit" disabled={isSending} className={`w-full py-2.5 px-4 rounded-lg font-semibold shadow-lg text-sm transform transition-all duration-200 ${isSending ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-500 hover:shadow-xl hover:-translate-y-0.5"}`}>
+                  {isSending ? "Sending..." : "Send Message 🚀"}
                 </button>
               </form>
             ) : (
