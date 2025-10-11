@@ -84,7 +84,7 @@ function ContactPage() {
                   <span className="text-lg">💼</span>
                   <span>LinkedIn Profile</span>
                 </a>
-                <a href="https://maps.app.goo.gl/hNonoCZM836a3KxK8" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <a href="https://maps.app.goo.gl/me91hsyHNsmcezZL6" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   <span className="relative inline-block">
                     <span className="text-lg ">📍</span>
                     <span className="absolute inset-0 h-full w-full animate-ping rounded-full bg-red-400 opacity-20"></span>
