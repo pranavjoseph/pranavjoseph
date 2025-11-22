@@ -32,7 +32,7 @@ function HomePage() {
         <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors duration-200 cursor-pointer">
           <Link to="/nodejs-developer">Software Developer</Link> | <Link to="/about">Tech Enthusiast</Link> | <Link to="/fullstack-developer">Full-Stack Developer</Link> |
           <Link to="/about">
-            &nbsp;Future Dad
+            &nbsp; Dad
             <span className="animate-pulse">❤️</span>
           </Link>
         </p>
