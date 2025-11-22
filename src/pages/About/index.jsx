@@ -1,23 +1,16 @@
 import { Link } from "react-router-dom";
-import { useTheme } from "../../components/ThemeProvider";
+import Layout from "../../components/Layout";
 
 function AboutPage() {
-  const { theme, toggleTheme } = useTheme();
-
   return (
-    <>
+    <Layout>
       {/* SEO Tags */}
       <title>About Pranav Joseph | Full Stack Developer in UK</title>
       <meta name="description" content="Learn more about Pranav Joseph, a full stack developer with 7+ years of experience in PHP, React, Node.js, Laravel, WordPress, and AWS." />
       <meta name="keywords" content="Pranav Joseph, full stack developer, freelance web developer London, React developer, Node.js, PHP, WordPress, AWS" />
 
-      {/* Dark Mode Toggle */}
-      <button onClick={toggleTheme} className="fixed top-6 right-6 z-50 p-3 bg-gray-200 rounded-full dark:bg-gray-900 shadow-lg hover:scale-110 transition-transform duration-200 text-2xl" aria-label="Toggle dark mode">
-        {theme === "light" ? "🌙" : "☀️"}
-      </button>
-
       {/* Page Wrapper */}
-      <main className="px-6 py-12 md:px-20 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+      <main className="px-6 py-12 md:px-20 text-gray-800 dark:text-gray-200 transition-colors duration-300">
         {/* About Me */}
         <section className="mb-16 text-center">
           <h1 className="text-4xl font-extrabold mb-4">About Me</h1>
@@ -98,7 +91,7 @@ function AboutPage() {
           </Link>
         </section>
       </main>
-    </>
+    </Layout>
   );
 }
 

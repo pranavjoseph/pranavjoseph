@@ -1,15 +1,10 @@
 import { Link } from "react-router-dom";
-import { useTheme } from "../../components/ThemeProvider";
+import Layout from "../../components/Layout";
 
 function PageNotFound() {
-  const { theme, toggleTheme } = useTheme();
-
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-50 dark:bg-gray-900 text-center px-4 transition-colors duration-300">
-      {/* Dark Mode Toggle */}
-      <button onClick={toggleTheme} className="fixed top-6 right-6 z-50 p-3 bg-gray-200 rounded-full dark:bg-gray-800 shadow-lg hover:scale-110 transition-transform duration-200 text-2xl" aria-label="Toggle dark mode">
-        {theme === "light" ? "🌙" : "☀️"}
-      </button>
+    <Layout>
+      <div className="flex flex-col items-center justify-center h-screen bg-gray-50 dark:bg-gray-900 text-center px-4 transition-colors duration-300">
 
       <h1 className="text-7xl font-extrabold text-blue-800 dark:text-blue-200 mb-4 animate-bounce">🤖 404</h1>
       <p className="text-2xl text-gray-700 dark:text-gray-300 mb-2">Oops! This page took the wrong turn in the codebase.</p>
@@ -20,6 +15,7 @@ function PageNotFound() {
         ⬅️ Back to Home
       </Link>
     </div>
+    </Layout>
   );
 }
 

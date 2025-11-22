@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { useTheme } from "../../components/ThemeProvider";
+import Layout from "../../components/Layout";
 import { useState } from "react";
 
 function ContactPage() {
-  const { theme, toggleTheme } = useTheme();
   const [formData, setFormData] = useState({
     "form-name": "contact",
     name: "",
@@ -43,19 +42,14 @@ function ContactPage() {
   };
 
   return (
-    <>
+    <Layout showHomeLink={false}>
       {/* ✅ SEO Tags */}
       <title>Contact Freelance Web Developer in London, Southampton & Woolston | Pranav Joseph</title>
       <meta name="description" content="Get in touch with Pranav Joseph, freelance web developer near London, Southampton, and Woolston. Available for PHP, WordPress, React, Node.js & SEO consulting." />
       <meta name="keywords" content="contact freelance developer London, Southampton, Woolston, hire freelancer near London, web developer contact, PHP WordPress React Node.js freelancer" />
 
       {/* ✅ Page Container */}
-      <div className="bg-white dark:bg-gray-800 transition-colors duration-300 min-h-screen">
-        {/* Dark Mode Toggle Button - Fixed top right */}
-        <button onClick={toggleTheme} className="fixed top-6 right-6 z-50 p-3 bg-gray-200 rounded-full dark:bg-gray-900 shadow-lg hover:scale-110 transition-transform duration-200 text-2xl" aria-label="Toggle dark mode">
-          {theme === "light" ? "🌙" : "☀️"}
-        </button>
-
+      <div className="transition-colors duration-300 min-h-screen">
         <div className="px-6 pt-16 text-center max-w-4xl mx-auto">
           <div className="text-center md:text-left">
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Contact Me</h1>
@@ -139,7 +133,7 @@ function ContactPage() {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 }
 

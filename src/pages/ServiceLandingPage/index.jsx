@@ -1,21 +1,15 @@
 import { Link } from "react-router-dom";
-import { useTheme } from "../../components/ThemeProvider";
+import Layout from "../../components/Layout";
 
 function ServiceLandingPage({ service, title, description, keywords, skills, projects }) {
-  const { theme, toggleTheme } = useTheme();
-
   return (
-    <>
+    <Layout>
       {/* SEO Tags */}
       <title>{`${title} | Pranav Joseph`}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
 
-      <div className="min-h-screen bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-300">
-        {/* Dark Mode Toggle */}
-        <button onClick={toggleTheme} className="fixed top-6 right-6 z-50 p-3 bg-gray-200 rounded-full dark:bg-gray-900 shadow-lg hover:scale-110 transition-transform duration-200 text-2xl" aria-label="Toggle dark mode">
-          {theme === "light" ? "🌙" : "☀️"}
-        </button>
+      <div className="min-h-screen text-gray-900 dark:text-white transition-colors duration-300">
 
         {/* Hero Section */}
         <section className="text-center py-20 px-6 max-w-4xl mx-auto">
@@ -73,7 +67,7 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
           </Link>
         </section>
       </div>
-    </>
+    </Layout>
   );
 }
 
