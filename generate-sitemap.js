@@ -10,6 +10,10 @@ const pages = [
   { url: "contact", changefreq: "monthly", priority: 0.8 },
   { url: "nodejs-developer", changefreq: "monthly", priority: 0.8 },
   { url: "fullstack-developer", changefreq: "monthly", priority: 0.8 },
+  { url: "php-developer", changefreq: "monthly", priority: 0.8 },
+  { url: "react-developer", changefreq: "monthly", priority: 0.8 },
+  { url: "laravel-developer", changefreq: "monthly", priority: 0.8 },
+  { url: "wordpress-developer", changefreq: "monthly", priority: 0.8 },
 ];
 
 async function generateSitemap() {
