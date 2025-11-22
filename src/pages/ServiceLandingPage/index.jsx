@@ -1,7 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Layout from "../../components/Layout";
 
 function ServiceLandingPage({ service, title, description, keywords, skills, projects }) {
+  const location = useLocation();
+  
+  const services = [
+    { path: "/nodejs-developer", label: "Node.js", icon: "⚙️" },
+    { path: "/react-developer", label: "React", icon: "⚛️" },
+    { path: "/php-developer", label: "PHP", icon: "🐘" },
+    { path: "/laravel-developer", label: "Laravel", icon: "🔧" },
+    { path: "/wordpress-developer", label: "WordPress", icon: "📝" },
+    { path: "/fullstack-developer", label: "Full-Stack", icon: "🛠️" },
+  ];
+
   return (
     <Layout>
       {/* SEO Tags */}
@@ -10,6 +21,29 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
       <meta name="keywords" content={keywords} />
 
       <div className="min-h-screen text-gray-900 dark:text-white transition-colors duration-300">
+
+        {/* Services Navigation Menu */}
+        <nav className="max-w-6xl mx-auto px-6 py-6">
+          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
+            {services.map((serviceItem) => {
+              const isActive = location.pathname === serviceItem.path;
+              return (
+                <Link
+                  key={serviceItem.path}
+                  to={serviceItem.path}
+                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    isActive
+                      ? "bg-blue-600 text-white shadow-md"
+                      : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300"
+                  }`}
+                >
+                  <span className="mr-1.5">{serviceItem.icon}</span>
+                  {serviceItem.label}
+                </Link>
+              );
+            })}
+          </div>
+        </nav>
 
         {/* Hero Section */}
         <section className="text-center py-24 px-6 max-w-5xl mx-auto">

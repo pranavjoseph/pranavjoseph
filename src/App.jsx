@@ -6,6 +6,10 @@ import { BASE_URL } from "./utils/constants";
 import ContactPage from "./pages/Contact";
 import NodeJsDevPage from "./pages/ServiceLandingPage/NodeJsDev";
 import FullStackDev from "./pages/ServiceLandingPage/FullStackDev";
+import PhpDevPage from "./pages/ServiceLandingPage/PhpDev";
+import ReactDevPage from "./pages/ServiceLandingPage/ReactDev";
+import LaravelDevPage from "./pages/ServiceLandingPage/LaravelDev";
+import WordPressDevPage from "./pages/ServiceLandingPage/WordPressDev";
 import AboutPage from "./pages/About";
 
 function App() {
@@ -18,6 +22,10 @@ function App() {
 
         <Route path="/nodejs-developer" element={<NodeJsDevPage />} />
         <Route path="/fullstack-developer" element={<FullStackDev />} />
+        <Route path="/php-developer" element={<PhpDevPage />} />
+        <Route path="/react-developer" element={<ReactDevPage />} />
+        <Route path="/laravel-developer" element={<LaravelDevPage />} />
+        <Route path="/wordpress-developer" element={<WordPressDevPage />} />
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>
