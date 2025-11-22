@@ -42,7 +42,7 @@ function ContactPage() {
   };
 
   return (
-    <Layout showHomeLink={false}>
+    <Layout showHomeLink={true}>
       {/* ✅ SEO Tags */}
       <title>Contact Freelance Web Developer in London, Southampton & Woolston | Pranav Joseph</title>
       <meta name="description" content="Get in touch with Pranav Joseph, freelance web developer near London, Southampton, and Woolston. Available for PHP, WordPress, React, Node.js & SEO consulting." />
@@ -54,9 +54,7 @@ function ContactPage() {
           <div className="text-center md:text-left">
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Contact Me</h1>
             <p className="text-gray-600 dark:text-gray-300 text-base">Let's connect! Feel free to reach out for freelance opportunities, collaborations, or just to say hello. 🚀</p>
-            <Link to="/" className="inline-block mt-3 text-xl hover:scale-110 transition-transform">
-              🏡
-            </Link>
+            <br />
           </div>
         </div>
         <div className="w-full max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6 md:grid-flow-col">
