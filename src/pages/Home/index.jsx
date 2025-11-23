@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { useTheme } from "../../components/ThemeProvider";
-import BackgroundCanvas from "../../components/BackgroundCanvas";
+import { lazy, Suspense } from "react";
+
+// Lazy load BackgroundCanvas for better initial performance
+const BackgroundCanvas = lazy(() => import("../../components/BackgroundCanvas"));
 
 function HomePage() {
   const { theme, toggleTheme } = useTheme();
@@ -19,7 +22,9 @@ function HomePage() {
 
       {/* Main Content */}
       <header className="relative flex flex-col justify-center items-center h-screen text-center transition-colors duration-300">
-        <BackgroundCanvas />
+        <Suspense fallback={null}>
+          <BackgroundCanvas />
+        </Suspense>
         <Link to="/about">
           <h1 className="text-5xl font-extrabold text-blue-800 dark:text-blue-200 mb-4 cursor-pointer">
             Hello, I'm Pranav Joseph{" "}

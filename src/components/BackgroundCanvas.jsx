@@ -23,7 +23,9 @@ function BackgroundCanvas() {
         ? ["#00FFFF", "#8A2BE2", "#87CEFA"] // cool glowing (cyan, violet, skyblue)
         : ["#FFD700", "#FF69B4", "#FFA500"]; // warm glowing (gold, pink, orange)
 
-    const particles = Array.from({ length: 80 }, () => ({
+    // Reduce particles for better performance
+    const particleCount = window.innerWidth < 768 ? 30 : 50;
+    const particles = Array.from({ length: particleCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       radius: Math.random() * 2 + 1,
@@ -52,37 +54,50 @@ function BackgroundCanvas() {
       return "#" + ((1 << 24) + (Math.round(rr) << 16) + (Math.round(rg) << 8) + Math.round(rb)).toString(16).slice(1);
     };
 
-    const draw = () => {
-      // smoothly transition background
-      currentColor = lerpColor(currentColor, targetColor, 0.02);
-      ctx.fillStyle = currentColor;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    let lastTime = 0;
+    const targetFPS = 30; // Reduce to 30 FPS for better performance
+    const frameInterval = 1000 / targetFPS;
 
-      particles.forEach((p) => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.shadowBlur = 12;
-        ctx.shadowColor = p.color;
-        ctx.fill();
+    const draw = (currentTime) => {
+      // Throttle animation to target FPS
+      if (currentTime - lastTime >= frameInterval) {
+        // smoothly transition background
+        currentColor = lerpColor(currentColor, targetColor, 0.02);
+        ctx.fillStyle = currentColor;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Use willReadFrequently optimization
+        ctx.save();
+        particles.forEach((p) => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          // Reduce shadow blur for better performance
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = p.color;
+          ctx.fill();
+
+          p.x += p.dx;
+          p.y += p.dy;
+
+          if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+          if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+
+          if (Math.random() < 0.01) {
+            p.dx += (Math.random() - 0.5) * 0.5;
+            p.dy += (Math.random() - 0.5) * 0.5;
+          }
+        });
+        ctx.restore();
         ctx.shadowBlur = 0;
 
-        p.x += p.dx;
-        p.y += p.dy;
-
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-
-        if (Math.random() < 0.01) {
-          p.dx += (Math.random() - 0.5) * 0.5;
-          p.dy += (Math.random() - 0.5) * 0.5;
-        }
-      });
+        lastTime = currentTime;
+      }
 
       animationFrameId = requestAnimationFrame(draw);
     };
 
-    draw();
+    animationFrameId = requestAnimationFrame(draw);
 
     return () => {
       window.removeEventListener("resize", resize);
@@ -90,7 +105,7 @@ function BackgroundCanvas() {
     };
   }, [theme]);
 
-  return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full -z-10" />;
+  return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full -z-10" style={{ willChange: 'transform' }} />;
 }
 
 export default BackgroundCanvas;
