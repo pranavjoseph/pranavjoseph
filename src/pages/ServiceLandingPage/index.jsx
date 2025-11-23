@@ -1,7 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import Layout from "../../components/Layout";
+import AnimatedCounter from "../../components/AnimatedCounter";
+import TechStackCloud from "../../components/TechStackCloud";
+import ScrollProgress from "../../components/ScrollProgress";
 
-function ServiceLandingPage({ service, title, description, keywords, skills, projects }) {
+function ServiceLandingPage({ service, title, description, keywords, skills, projects, techStack = [] }) {
   const location = useLocation();
   
   const services = [
@@ -20,6 +23,7 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
 
+      <ScrollProgress />
       <div className="min-h-screen text-gray-900 dark:text-white transition-colors duration-300">
 
         {/* Services Navigation Menu */}
@@ -58,6 +62,51 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
             Let's Work Together 🚀
           </Link>
         </section>
+
+        {/* Animated Statistics Section */}
+        <section className="max-w-6xl mx-auto px-6 py-20 bg-gradient-to-br from-blue-50/50 via-transparent to-blue-50/50 dark:from-blue-900/10 dark:via-transparent dark:to-blue-900/10 rounded-3xl my-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900 dark:text-white">
+            By The Numbers 📊
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center p-8 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-blue-100 dark:border-gray-700">
+              <div className="text-6xl mb-4">💼</div>
+              <div className="text-5xl md:text-6xl font-extrabold text-blue-600 dark:text-blue-400 mb-2">
+                <AnimatedCounter end={7} suffix="+" />
+              </div>
+              <p className="text-xl font-semibold text-gray-700 dark:text-gray-300">Years Experience</p>
+            </div>
+            <div className="text-center p-8 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-blue-100 dark:border-gray-700">
+              <div className="text-6xl mb-4">🚀</div>
+              <div className="text-5xl md:text-6xl font-extrabold text-blue-600 dark:text-blue-400 mb-2">
+                <AnimatedCounter end={50} suffix="+" />
+              </div>
+              <p className="text-xl font-semibold text-gray-700 dark:text-gray-300">Projects Delivered</p>
+            </div>
+            <div className="text-center p-8 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-blue-100 dark:border-gray-700">
+              <div className="text-6xl mb-4">⭐</div>
+              <div className="text-5xl md:text-6xl font-extrabold text-blue-600 dark:text-blue-400 mb-2">
+                <AnimatedCounter end={100} suffix="%" />
+              </div>
+              <p className="text-xl font-semibold text-gray-700 dark:text-gray-300">Client Satisfaction</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Interactive Tech Stack Cloud */}
+        {techStack && techStack.length > 0 && (
+          <section className="max-w-6xl mx-auto px-6 py-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900 dark:text-white">
+              Tech Stack Mastery 🛠️
+            </h2>
+            <div className="bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-gray-900 rounded-3xl p-8 shadow-2xl border border-blue-100 dark:border-gray-700">
+              <TechStackCloud technologies={techStack} />
+              <p className="text-center mt-8 text-gray-600 dark:text-gray-400 italic text-sm">
+                💡 <strong>Tip:</strong> Hover to see skill levels • Click for detailed info • Use category filters to explore
+              </p>
+            </div>
+          </section>
+        )}
 
         {/* Why Hire Me - Clean & Simple */}
         <section className="max-w-4xl mx-auto px-6 py-20">

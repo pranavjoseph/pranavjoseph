@@ -8,6 +8,7 @@ function NodeJsDevPage() {
       description="Senior Full Stack Developer with 7+ years experience building scalable backend systems using Node.js, Express, and AWS. I deliver production-ready APIs, serverless solutions, and cloud-native applications for global users."
       keywords="nodejs developer UK, hire node.js developer Southampton, freelance Node.js developer London, backend engineer Southampton, fullstack javascript developer UK, AWS node.js developer"
       skills={["💻 7+ years experience with Node.js, Express.js & JavaScript/TypeScript", "🌍 Built RESTful APIs serving global users with MySQL & MongoDB", "☁️ AWS expertise: EC2, S3, Cognito, CloudWatch, Serverless Framework", "🐳 Docker containerization and CI/CD pipeline implementation", "🏢 Experience with insurance domain and real estate platforms", "🧩 Strong problem-solving mindset with attention to detail"]}
+      techStack={["Node.js", "Express.js", "TypeScript", "JavaScript", "AWS", "Docker", "MySQL", "MongoDB", "REST APIs", "Serverless", "CI/CD", "CloudWatch"]}
       projects={[
         {
           name: "Cyber Boxx Insurance Platform",

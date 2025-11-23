@@ -1,15 +1,39 @@
 import { Link } from "react-router-dom";
 import { useTheme } from "../../components/ThemeProvider";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
+import HomeLoader from "../../components/HomeLoader";
 
 // Lazy load BackgroundCanvas for better initial performance
 const BackgroundCanvas = lazy(() => import("../../components/BackgroundCanvas"));
 
 function HomePage() {
   const { theme, toggleTheme } = useTheme();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const handleLoad = () => {
+      // Small delay for smooth transition
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 300);
+    };
+
+    // Check if page is already loaded
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      window.addEventListener('load', handleLoad);
+    }
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, []);
 
   return (
     <>
+      {isLoading && <HomeLoader />}
+      
       {/* SEO Tags */}
       <title>Freelance Web Developer in London, Southampton & Woolston | PHP, WordPress, React & Node.js</title>
       <meta name="description" content="Pranav Joseph is a freelance full-stack developer near London, Southampton, and Woolston. Expert in PHP, WordPress, React, Node.js & SEO consulting." />
