@@ -47,3 +47,5 @@ function TerminalAnimation({ code, language = "javascript" }) {
 
 export default TerminalAnimation;
 
+
+

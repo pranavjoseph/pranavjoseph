@@ -39,3 +39,5 @@ function TechStackVisualization({ techs }) {
 
 export default TechStackVisualization;
 
+
+

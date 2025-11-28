@@ -1,9 +1,9 @@
 {
   "name": "pranavjoseph",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.1.0",
   "type": "module",
-  "homepage": "https://pranavjoseph.github.io/pranav_dev",
+  "homepage": "https://pranavjoseph.com/",
   "scripts": {
     "dev": "vite",
     "build": "npm run generate-sitemap && vite build",

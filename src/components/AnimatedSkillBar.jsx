@@ -56,3 +56,5 @@ function AnimatedSkillBar({ skill, level, color = "blue" }) {
 
 export default AnimatedSkillBar;
 
+
+

@@ -54,51 +54,115 @@ function AboutPage() {
             Experience
           </h2>
           <div className="space-y-8 max-w-5xl mx-auto">
-            <div className="relative p-8 bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-xl border-l-4 border-blue-600 dark:border-blue-500">
+            <div className="relative p-8 bg-gradient-to-br from-white to-blue-50/80 dark:from-gray-800 dark:to-gray-900/80 rounded-2xl shadow-xl ring-1 ring-gray-200/70 dark:ring-gray-700/80">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 md:mb-0">Senior Software Developer</h3>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 md:mb-0">Bridge Global</h3>
                 <span className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-semibold">
                   Jan 2022 – Present
                 </span>
               </div>
-              <p className="text-gray-600 dark:text-gray-400 mb-4 font-medium">Bridge Global | Remote & Onsite, Kochi</p>
-              <iframe className="mt-4 w-full h-[500px] rounded-lg shadow-md" style={{"overflow":"hidden"}} src="https://www.linkedin.com/embed/feed/update/urn:li:share:7217405986481848320?collapsed=1" allowFullScreen="" title="Star Performer"></iframe>
+              <p className="text-gray-600 dark:text-gray-400 mb-4 font-medium">Software Programmer • Kochi & Remote</p>
+              <div className="space-y-4 border border-blue-200 dark:border-blue-700 rounded-2xl p-4 bg-white/60 dark:bg-gray-900/30">
+                <div>
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <p className="font-semibold text-gray-900 dark:text-white">Software Programmer</p>
+                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-100">Jun 2025 – Present</span>
+                  </div>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Owning feature delivery across Node.js, Vue.js, and PHP stacks while coordinating with UK clients and QA teams.</p>
+                </div>
+                <div>
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <p className="font-semibold text-gray-900 dark:text-white">Senior Software Programmer</p>
+                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-100">May 2024 – May 2025</span>
+                  </div>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Delivered secure APIs, led sprint planning, and mentored engineers on modern JavaScript tooling.</p>
+                </div>
+                <div>
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <p className="font-semibold text-gray-900 dark:text-white">Software Programmer</p>
+                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-100">Jan 2022 – Apr 2024</span>
+                  </div>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Built customer portals, automated deployments with Docker, and improved incident response playbooks.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative p-8 bg-gradient-to-br from-white to-blue-50/80 dark:from-gray-800 dark:to-gray-900/80 rounded-2xl shadow-xl ring-1 ring-gray-200/70 dark:ring-gray-700/80">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 md:mb-0">ANGARD Staffing Solutions (Royal Mail)</h3>
+                <span className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-semibold">
+                  Apr 2025 – Present
+                </span>
+              </div>
+              <p className="text-gray-600 dark:text-gray-400 mb-4 font-medium">Postal Operations Services • Southampton, UK</p>
               <ul className="mt-6 space-y-3 text-gray-700 dark:text-gray-300">
                 <li className="flex items-start">
                   <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
-                  <span>Led frontend projects with React.js and Vue.</span>
+                  <span>Coordinate logistics streams and ensure SLA adherence for Royal Mail sorting hubs.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
-                  <span>Designed & developed REST APIs using Laravel & Node.js.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
-                  <span>Implemented CI/CD pipelines & managed legacy codebases.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
-                  <span>Mentored junior developers & collaborated with clients.</span>
+                  <span>Apply incident-response mindset from engineering to streamline on-floor escalations.</span>
                 </li>
               </ul>
             </div>
 
-            <div className="relative p-8 bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-xl border-l-4 border-blue-600 dark:border-blue-500">
+            <div className="relative p-8 bg-gradient-to-br from-white to-blue-50/80 dark:from-gray-800 dark:to-gray-900/80 rounded-2xl shadow-xl ring-1 ring-gray-200/70 dark:ring-gray-700/80">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 md:mb-0">Software Developer</h3>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 md:mb-0">Cleffex Digital Ltd</h3>
+                <span className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-semibold">
+                  Sep 2023 – May 2025
+                </span>
+              </div>
+              <p className="text-gray-600 dark:text-gray-400 mb-4 font-medium">Software Programmer • Remote</p>
+              <ul className="mt-6 space-y-3 text-gray-700 dark:text-gray-300">
+                <li className="flex items-start">
+                  <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
+                  <span>Developed Laravel + Vue SaaS modules and optimized data flows powering B2B analytics.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
+                  <span>Partnered with cybersecurity teams to harden APIs using OWASP-aligned controls.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="relative p-8 bg-gradient-to-br from-white to-blue-50/80 dark:from-gray-800 dark:to-gray-900/80 rounded-2xl shadow-xl ring-1 ring-gray-200/70 dark:ring-gray-700/80">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 md:mb-0">Globosoft</h3>
                 <span className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-semibold">
                   Jan 2018 – Jan 2022
                 </span>
               </div>
-              <p className="text-gray-600 dark:text-gray-400 mb-4 font-medium">Globosoft Solutions | Ernakulam, Kerala</p>
+              <p className="text-gray-600 dark:text-gray-400 mb-4 font-medium">Software Developer • Ernakulam, Kerala</p>
               <ul className="mt-6 space-y-3 text-gray-700 dark:text-gray-300">
                 <li className="flex items-start">
                   <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
-                  <span>Developed back-end systems with Laravel, OpenCart & MySQL.</span>
+                  <span>Delivered bespoke ecommerce builds with Laravel, OpenCart, and REST APIs.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
-                  <span>Built Angular front-end apps & integrated IoT systems.</span>
+                  <span>Integrated IoT telemetry pipelines and introduced automated QA scripts.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="relative p-8 bg-gradient-to-br from-white to-blue-50/80 dark:from-gray-800 dark:to-gray-900/80 rounded-2xl shadow-xl ring-1 ring-gray-200/70 dark:ring-gray-700/80">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 md:mb-0">Microweb Solutions</h3>
+                <span className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-semibold">
+                  Jun 2017 – Dec 2017
+                </span>
+              </div>
+              <p className="text-gray-600 dark:text-gray-400 mb-4 font-medium">Junior Software Developer • Cochin, India</p>
+              <ul className="mt-6 space-y-3 text-gray-700 dark:text-gray-300">
+                <li className="flex items-start">
+                  <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
+                  <span>Launched CMS-driven sites for regional SMBs using PHP and Bootstrap.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
+                  <span>Documented deployment runbooks and strengthened cross-team collaboration.</span>
                 </li>
               </ul>
             </div>

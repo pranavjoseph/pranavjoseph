@@ -25,3 +25,5 @@ function TypewriterEffect({ text, speed = 100, className = "" }) {
 
 export default TypewriterEffect;
 
+
+
