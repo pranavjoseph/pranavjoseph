@@ -2,7 +2,7 @@ import { writeFileSync } from "fs";
 import { SitemapStream, streamToPromise } from "sitemap";
 
 // Auto-detect deployment environment
-const BASE_URL = process.env.NETLIFY ? "https://pranav-dev.netlify.app/" : "https://pranavjoseph.github.io/pranav_dev/";
+const BASE_URL = "https://pranavjoseph.com/";
 
 // List your routes here
 const pages = [
