@@ -33,7 +33,7 @@ function HomePage() {
   return (
     <>
       {isLoading && <HomeLoader />}
-      
+
       {/* SEO Tags */}
       <title>Freelance Web Developer in London, Southampton & Woolston | PHP, WordPress, React & Node.js</title>
       <meta name="description" content="Pranav Joseph is a freelance full-stack developer near London, Southampton, and Woolston. Expert in PHP, WordPress, React, Node.js & SEO consulting." />
@@ -45,12 +45,12 @@ function HomePage() {
       </button>
 
       {/* Main Content */}
-      <header className="relative flex flex-col justify-center items-center h-screen text-center transition-colors duration-300">
+      <header className="relative flex flex-col justify-center items-center min-h-screen py-20 text-center transition-colors duration-300">
         <Suspense fallback={null}>
           <BackgroundCanvas />
         </Suspense>
         <Link to="/about">
-          <h1 className="text-5xl font-extrabold text-blue-800 dark:text-blue-200 mb-4 cursor-pointer">
+          <h1 className="text-3xl md:text-5xl font-extrabold text-blue-800 dark:text-blue-200 mb-6 cursor-pointer px-4">
             Hello, I'm Pranav Joseph{" "}
             <span role="img" aria-label="waving hand" className="inline-block animate-wave origin-[70%_70%]">
               👋
@@ -58,33 +58,33 @@ function HomePage() {
           </h1>
         </Link>
         {/* <Link to="/contact" > */}
-        <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 text-xl">
-          <Link 
-            to="/nodejs-developer" 
+        <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 text-lg md:text-xl px-4">
+          <Link
+            to="/nodejs-developer"
             className="px-4 py-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 font-semibold hover:bg-blue-200 dark:hover:bg-blue-700/50 hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-md"
           >
             💻 Software Developer
           </Link>
           <span className="text-gray-400 dark:text-gray-500">|</span>
-          <Link 
-            to="/about" 
+          <Link
+            to="/about"
             className="px-4 py-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 font-semibold hover:bg-blue-200 dark:hover:bg-blue-700/50 hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-md"
           >
             ⚡ Tech Enthusiast
           </Link>
           <span className="text-gray-400 dark:text-gray-500">|</span>
-          <Link 
-            to="/fullstack-developer" 
+          <Link
+            to="/fullstack-developer"
             className="px-4 py-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 font-semibold hover:bg-blue-200 dark:hover:bg-blue-700/50 hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-md"
           >
             🛠️ Full-Stack Developer
           </Link>
           <span className="text-gray-400 dark:text-gray-500">|</span>
-          <Link 
-            to="/about" 
+          <Link
+            to="/about"
             className="px-4 py-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 font-semibold hover:bg-blue-200 dark:hover:bg-blue-700/50 hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-md"
           >
-            <span className="animate-pulse">❤️</span> Dad 
+            <span className="animate-pulse">❤️</span> Dad
           </Link>
         </div>
         {/* </Link> */}

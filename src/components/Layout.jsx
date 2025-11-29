@@ -9,7 +9,7 @@ function Layout({ children, showHomeLink = true }) {
       {/* Dark Mode Toggle Button - Fixed top right */}
       <button
         onClick={toggleTheme}
-        className="fixed top-6 right-6 z-50 p-3 bg-gray-200 rounded-full dark:bg-gray-900 shadow-lg hover:scale-110 transition-transform duration-200 text-2xl"
+        className="fixed top-4 right-4 md:top-6 md:right-6 z-50 p-2 md:p-3 bg-gray-200 rounded-full dark:bg-gray-900 shadow-lg hover:scale-110 transition-transform duration-200 text-xl md:text-2xl"
         aria-label="Toggle dark mode"
       >
         {theme === "light" ? "🌙" : "☀️"}
@@ -19,7 +19,7 @@ function Layout({ children, showHomeLink = true }) {
       {showHomeLink && (
         <Link
           to="/"
-          className="fixed top-6 left-6 z-50 p-3 bg-gray-200 rounded-full dark:bg-gray-900 shadow-lg hover:scale-110 transition-transform duration-200 text-2xl"
+          className="fixed top-4 left-4 md:top-6 md:left-6 z-50 p-2 md:p-3 bg-gray-200 rounded-full dark:bg-gray-900 shadow-lg hover:scale-110 transition-transform duration-200 text-xl md:text-2xl"
           aria-label="Go to home"
         >
           🏡

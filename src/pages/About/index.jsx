@@ -10,7 +10,7 @@ function AboutPage() {
       <meta name="keywords" content="Pranav Joseph, full stack developer, freelance web developer London, React developer, Node.js, PHP, WordPress, AWS" />
 
       {/* Page Wrapper */}
-      <main className="px-6 py-16 md:px-12 lg:px-20 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+      <main className="px-4 py-16 md:px-12 lg:px-20 text-gray-800 dark:text-gray-200 transition-colors duration-300">
         {/* Hero Section */}
         <section className="mb-20 text-center max-w-4xl mx-auto">
           <div className="inline-block mb-6 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-800 dark:text-blue-200 text-sm font-semibold">
