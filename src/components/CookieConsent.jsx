@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import * as CookieConsent from "vanilla-cookieconsent";
 import "vanilla-cookieconsent/dist/cookieconsent.css";
-import { useTheme } from "./ThemeProvider"; // adjust path
+import { useTheme } from "./ThemeProvider";
 
 function CookieConsentBanner() {
     const { theme } = useTheme();
@@ -22,12 +22,16 @@ function CookieConsentBanner() {
                     flipButtons: false
                 }
             },
+
+            // Enable categories for GTM blocking
             categories: {
                 necessary: {
                     readOnly: true
                 },
-                analytics: {}
+                analytics: {},
+                ads: {}
             },
+
             language: {
                 default: "en",
                 autoDetect: "browser",
@@ -35,57 +39,58 @@ function CookieConsentBanner() {
                     en: {
                         consentModal: {
                             title: "We use cookies 🍪",
-                            description: "We use cookies to improve your experience and show personalized ads. You can manage preferences.",
-                            acceptAllBtn: "Accept all",
-                            acceptNecessaryBtn: "Reject all",
-                            showPreferencesBtn: "Manage preferences",
-                            // footer: "<a href=\"#link\">Privacy Policy</a>\n<a href=\"#link\">Terms and conditions</a>"
+                            description:
+                                "We use cookies to improve your experience, analyse site traffic, and deliver personalised advertising. Non-essential cookies will only be set if you enable them.",
+                            acceptAllBtn: "Accept all cookies",
+                            acceptNecessaryBtn: "Reject non-essential",
+                            showPreferencesBtn: "Manage preferences"
                         },
                         preferencesModal: {
-                            title: "Consent Preferences Center",
-                            acceptAllBtn: "Accept all",
-                            acceptNecessaryBtn: "Reject all",
+                            title: "Cookie Settings",
+                            acceptAllBtn: "Accept all cookies",
+                            acceptNecessaryBtn: "Reject non-essential",
                             savePreferencesBtn: "Save preferences",
-                            closeIconLabel: "Close modal",
+                            closeIconLabel: "Close settings",
                             serviceCounterLabel: "Service|Services",
+
                             sections: [
                                 {
-                                    title: "Cookie Usage",
+                                    title: "About Cookies",
                                     description:
-                                        "We use cookies to improve your browsing experience, provide essential site functionality, analyze traffic, and deliver relevant ads. You can choose to enable or disable non-essential cookies below."
+                                        "This website uses cookies to improve functionality, analyse traffic and personalise ads. You may disable non-essential categories below."
                                 },
                                 {
-                                    title: "Strictly Necessary Cookies <span class=\"pm__badge\">Always Enabled</span>",
+                                    title:
+                                        "Strictly Necessary Cookies <span class='pm__badge'>Always enabled</span>",
                                     description:
-                                        "These cookies are required for the website to function properly (e.g., remembering your dark mode preference or keeping navigation consistent). They cannot be disabled.",
+                                        "These cookies are required for core features such as security, accessibility and remembering your site preferences.",
                                     linkedCategory: "necessary"
                                 },
                                 {
-                                    title: "Analytics Cookies",
+                                    title: "Analytics Cookies (Google Analytics)",
                                     description:
-                                        "Analytics cookies help us understand how visitors interact with the site, such as which pages are most popular. This information is anonymous and helps us improve the content.",
+                                        "Analytics cookies collect anonymous information about how visitors use the site. These will only load if you opt-in. We use Google Analytics 4, compliant with UK GDPR.",
                                     linkedCategory: "analytics"
                                 },
                                 {
-                                    title: "Advertising Cookies",
+                                    title: "Advertising Cookies (Google Ads / Tag Manager)",
                                     description:
-                                        "Advertising cookies are used to deliver personalized ads through services like Google AdSense. These cookies may track your browsing activity across different websites.",
+                                        "Advertising cookies help deliver personalised ads and measure ad performance. These require your explicit consent under UK GDPR and PECR.",
                                     linkedCategory: "ads"
                                 },
                                 {
                                     title: "More information",
                                     description:
-                                        "For any queries about my cookie policy or to exercise your rights, please <a class=\"cc__link\" href=\"/contact\">contact me</a>."
+                                        "To learn more about how your data is used or to exercise your rights, please see our <a class='cc__link' href='/privacy'>Privacy Policy</a> or <a class='cc__link' href='/contact'>contact me</a>."
                                 }
                             ]
-
                         }
                     }
                 }
             }
         });
 
-        // Sync with dark mode
+        // Dark mode sync
         if (theme === "dark") {
             document.documentElement.classList.add("cc--darkmode");
         } else {
@@ -93,7 +98,7 @@ function CookieConsentBanner() {
         }
     }, [theme]);
 
-    return null; // Banner is handled by the library
+    return null;
 }
 
 export default CookieConsentBanner;
