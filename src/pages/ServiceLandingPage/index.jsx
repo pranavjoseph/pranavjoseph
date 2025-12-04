@@ -6,7 +6,7 @@ import ScrollProgress from "../../components/ScrollProgress";
 
 function ServiceLandingPage({ service, title, description, keywords, skills, projects, techStack = [] }) {
   const location = useLocation();
-  
+
   const services = [
     { path: "/nodejs-developer", label: "Node.js", icon: "⚙️" },
     { path: "/react-developer", label: "React", icon: "⚛️" },
@@ -35,11 +35,10 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
                 <Link
                   key={serviceItem.path}
                   to={serviceItem.path}
-                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    isActive
+                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${isActive
                       ? "bg-blue-600 text-white shadow-md"
                       : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300"
-                  }`}
+                    }`}
                 >
                   <span className="mr-1.5">{serviceItem.icon}</span>
                   {serviceItem.label}
