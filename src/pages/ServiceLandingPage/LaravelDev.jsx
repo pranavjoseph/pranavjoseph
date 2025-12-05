@@ -4,9 +4,9 @@ function LaravelDevPage() {
   return (
     <ServiceLandingPage
       service="Laravel Developer"
-      title="Hire a Laravel Developer in Southampton, London & Remote"
-      description="Senior Laravel Developer with 7+ years experience building robust PHP applications using Laravel framework. I deliver secure, scalable backend solutions with clean architecture and best practices."
-      keywords="Laravel developer UK, hire Laravel developer Southampton, freelance Laravel developer London, PHP Laravel developer, Laravel API developer UK"
+      title="Freelance Laravel Developer Southampton | Expert Custom Integrations"
+      description="Expert Freelance Laravel Developer in Southampton. Building scalable, secure web applications, APIs, and SaaS platforms. Hire a top-rated Laravel specialist for your business."
+      keywords="freelance Laravel developer Southampton, Laravel expert London, hire Laravel developer UK, SaaS development, PHP framework expert, web application developer Hampshire"
       skills={["🔧 7+ years developing Laravel applications from scratch to production", "🛡️ Security-first approach: authentication, authorization, and data protection", "📡 RESTful API development with Laravel for mobile and web applications", "🗄️ Database optimization with Eloquent ORM and MySQL/PostgreSQL", "⚙️ Laravel ecosystem: Livewire, Nova, Horizon, and Queue management", "🚀 Deployment expertise: AWS, Docker, and CI/CD pipeline setup"]}
       projects={[
         {

@@ -4,9 +4,9 @@ function NodeJsDevPage() {
   return (
     <ServiceLandingPage
       service="Node.js Developer"
-      title="Hire a Node.js Developer in Southampton, London & Remote"
-      description="Senior Full Stack Developer with 7+ years experience building scalable backend systems using Node.js, Express, and AWS. I deliver production-ready APIs, serverless solutions, and cloud-native applications for global users."
-      keywords="nodejs developer UK, hire node.js developer Southampton, freelance Node.js developer London, backend engineer Southampton, fullstack javascript developer UK, AWS node.js developer"
+      title="Freelance Node.js Developer Southampton | Backend & API Expert"
+      description="Senior Freelance Node.js Developer serving Southampton, London, and the UK. Scalable backend solutions, REST APIs, and microservices with Node.js, Express, and AWS. Get a quote today."
+      keywords="freelance Node.js developer Southampton, backend developer London, hire Node.js expert, API development UK, AWS serverless developer, Express.js specialist, database architecture"
       skills={["💻 7+ years experience with Node.js, Express.js & JavaScript/TypeScript", "🌍 Built RESTful APIs serving global users with MySQL & MongoDB", "☁️ AWS expertise: EC2, S3, Cognito, CloudWatch, Serverless Framework", "🐳 Docker containerization and CI/CD pipeline implementation", "🏢 Experience with insurance domain and real estate platforms", "🧩 Strong problem-solving mindset with attention to detail"]}
       techStack={["Node.js", "Express.js", "TypeScript", "JavaScript", "AWS", "Docker", "MySQL", "MongoDB", "REST APIs", "Serverless", "CI/CD", "CloudWatch"]}
       projects={[

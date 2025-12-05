@@ -143,7 +143,7 @@ function HomePage() {
           </Link>
           <span className="text-gray-400 dark:text-gray-500">|</span>
           <Link
-            to="/about"
+            to="/contact"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             className="px-4 py-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 font-semibold shadow-sm"

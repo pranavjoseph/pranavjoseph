@@ -4,9 +4,9 @@ function PhpDevPage() {
   return (
     <ServiceLandingPage
       service="PHP Developer"
-      title="Hire a PHP Developer in Southampton, London & Remote"
-      description="Senior PHP Developer with 7+ years experience building robust web applications using PHP, Laravel, Symfony, and custom frameworks. I deliver secure, scalable backend solutions with clean code and modern PHP practices."
-      keywords="PHP developer UK, hire PHP developer Southampton, freelance PHP developer London, PHP Laravel developer, Symfony developer UK, custom PHP development"
+      title="Freelance PHP Developer Southampton | Custom Web Solutions"
+      description="Experienced Freelance PHP Developer in Southampton. Custom PHP development, legacy code upgrades, and API integrations. Reliable, secure, and fast PHP solutions for your business."
+      keywords="freelance PHP developer Southampton, PHP programmer London, hire PHP developer UK, custom PHP development, legacy code maintenance, backend web developer Hampshire"
       skills={["🐘 7+ years developing PHP applications with modern PHP 7+ and PHP 8", "🔧 Framework expertise: Laravel, Symfony, CodeIgniter, and custom PHP solutions", "🛡️ Security-first development: input validation, SQL injection prevention, XSS protection", "📡 RESTful API development and third-party integrations", "🗄️ Database expertise: MySQL, PostgreSQL with optimization and query tuning", "⚡ Performance optimization: caching strategies, code optimization, and scalability"]}
       projects={[
         {

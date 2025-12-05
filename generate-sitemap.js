@@ -7,7 +7,8 @@ const BASE_URL = "https://pranavjoseph.com/";
 // List your routes here
 const pages = [
   { url: "", changefreq: "monthly", priority: 1.0 },
-  { url: "contact", changefreq: "monthly", priority: 0.8 },
+  { url: "about", changefreq: "monthly", priority: 0.8 },
+  { url: "contact", changefreq: "monthly", priority: 0.9 },
   { url: "nodejs-developer", changefreq: "monthly", priority: 0.8 },
   { url: "fullstack-developer", changefreq: "monthly", priority: 0.8 },
   { url: "php-developer", changefreq: "monthly", priority: 0.8 },

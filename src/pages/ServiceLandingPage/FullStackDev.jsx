@@ -3,10 +3,10 @@ import ServiceLandingPage from ".";
 function FullStackDev() {
   return (
     <ServiceLandingPage
-      service="Fullstack Developer"
-      title="Hire a Fullstack Developer in Southampton, London & Remote"
-      description="Senior Full Stack Developer with 7+ years experience building end-to-end web applications using React, Vue, Node.js, PHP (Laravel/Symfony), and AWS. I deliver scalable, secure solutions from frontend UI to backend APIs for global users."
-      keywords="fullstack developer UK Southampton, hire fullstack developer London, React Vue Node.js developer, PHP Laravel developer UK, AWS fullstack developer, insurance domain developer"
+      service="Full Stack Developer"
+      title="Freelance Full Stack Developer Southampton | React, Node.js & PHP"
+      description="Versatile Freelance Full Stack Developer in Southampton. Expert in frontend (React, modern JS) and backend (Node.js, PHP, AWS). Complete web solutions from concept to deployment."
+      keywords="freelance full stack developer Southampton, full stack engineer London, hire web developer UK, MERN stack developer, LAMP stack expert, custom software development Hampshire"
       skills={["💻 7+ years building fullstack applications for global users", "🎨 Frontend: React.js, Vue.js, Angular, TailwindCSS, HTML5/CSS3", "⚙️ Backend: PHP (Laravel, Symfony), Node.js, Express.js, RESTful APIs", "🗄️ Databases: MySQL, MongoDB with optimization experience", "☁️ Cloud: AWS (EC2, S3, Cognito, CloudWatch), Docker, Serverless", "👥 Leadership: Mentoring junior developers, code reviews, client meetings", "🔄 Agile/Scrum experience with project estimation and CI/CD implementation"]}
       projects={[
         {

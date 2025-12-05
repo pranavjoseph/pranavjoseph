@@ -4,9 +4,9 @@ function ReactDevPage() {
   return (
     <ServiceLandingPage
       service="React Developer"
-      title="Hire a React Developer in Southampton, London & Remote"
-      description="Expert React Developer with 7+ years experience building modern, responsive web applications using React, Next.js, and TypeScript. I create fast, scalable frontend solutions with clean code and best practices."
-      keywords="React developer UK, hire React developer Southampton, freelance React developer London, React.js developer, Next.js developer UK, frontend developer Southampton"
+      title="Freelance React Developer Southampton | Expert Frontend Services"
+      description="Looking for an expert React Developer in Southampton or London? I build high-performance, SEO-friendly web apps using React, Next.js, and Tailwind CSS. Hire me for your next project."
+      keywords="freelance React developer Southampton, React developer London, hire React js developer, frontend developer Hampshire, Next.js expert, web application development, UI/UX developer"
       skills={["⚛️ 7+ years building React applications with hooks, context, and modern patterns", "🎨 Expert in React ecosystem: Next.js, Redux, React Router, TailwindCSS", "📱 Responsive design with mobile-first approach and cross-browser compatibility", "⚡ Performance optimization: code splitting, lazy loading, and memoization", "🔧 TypeScript expertise for type-safe React applications", "🚀 Experience with React testing libraries and CI/CD integration"]}
       projects={[
         {
