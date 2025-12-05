@@ -150,7 +150,7 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
   }, [location.pathname]); // Re-run when location changes (service page switch)
 
   return (
-    <Layout>
+    <Layout showHomeLink={false}>
       {/* SEO Tags with Helmet */}
       <title>{`${title} | Pranav Joseph`}</title>
       <meta name="description" content={description} />
