@@ -9,6 +9,28 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+function JsonLd({ jsonLd }) {
+  useLayoutEffect(() => {
+    // Remove old one (prevents duplicates)
+    const old = document.getElementById("jsonld-script");
+    if (old) old.remove();
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "jsonld-script";
+    script.innerHTML = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+
+    // Cleanup on unmount
+    return () => {
+      const existing = document.getElementById("jsonld-script");
+      if (existing) existing.remove();
+    };
+  }, [jsonLd]);
+
+  return null;
+}
+
 function ServiceLandingPage({ service, title, description, keywords, skills, projects, techStack = [] }) {
   const location = useLocation();
   const mainRef = useRef(null);
@@ -26,41 +48,36 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": `Pranav Joseph - ${service}`,
-    "image": "https://pranavjoseph.com/preview.png", // Replace with actual absolute URL
-    "description": description,
-    "url": `https://pranavjoseph.com${location.pathname}`,
-    "telephone": "+44 7979 652 283",
-    "address": {
+    name: `Pranav Joseph - ${service}`,
+    image: "https://pranavjoseph.com/preview.png", // Replace with actual absolute URL
+    description: description,
+    url: `https://pranavjoseph.com${location.pathname}`,
+    telephone: "+44 7979 652 283",
+    address: {
       "@type": "PostalAddress",
-      "addressLocality": "Southampton",
-      "addressRegion": "Hampshire",
-      "addressCountry": "UK"
+      addressLocality: "Southampton",
+      addressRegion: "Hampshire",
+      addressCountry: "UK",
     },
-    "priceRange": "$$$",
-    "founder": {
+    priceRange: "$$$",
+    founder: {
       "@type": "Person",
-      "name": "Pranav Joseph",
-      "jobTitle": "Freelance Web Developer"
+      name: "Pranav Joseph",
+      jobTitle: "Freelance Web Developer",
     },
-    "sameAs": [
-      "https://www.linkedin.com/in/pranav-joseph/",
-      "https://github.com/pranavjoseph"
-    ]
+    sameAs: ["https://www.linkedin.com/in/pranav-joseph/", "https://github.com/pranavjoseph"],
   };
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       // Hero Section Animation
       const tl = gsap.timeline();
-      tl.fromTo(".hero-content > *",
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" }
-      );
+      tl.fromTo(".hero-content > *", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" });
 
       // Stats Section Animation
       gsap.utils.toArray(".stats-card").forEach((card, i) => {
-        gsap.fromTo(card,
+        gsap.fromTo(
+          card,
           { y: 50, opacity: 0 },
           {
             scrollTrigger: {
@@ -71,14 +88,15 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
             opacity: 1,
             duration: 0.6,
             delay: i * 0.2,
-            ease: "back.out(1.7)"
+            ease: "back.out(1.7)",
           }
         );
       });
 
       // Tech Stack Animation
       if (document.querySelector(".tech-stack-section")) {
-        gsap.fromTo(".tech-stack-container",
+        gsap.fromTo(
+          ".tech-stack-container",
           { y: 30, opacity: 0 },
           {
             scrollTrigger: {
@@ -88,14 +106,15 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
             y: 0,
             opacity: 1,
             duration: 0.8,
-            ease: "power2.out"
+            ease: "power2.out",
           }
         );
       }
 
       // Skills / Why Hire Me Animation
       gsap.utils.toArray(".skill-item").forEach((item, i) => {
-        gsap.fromTo(item,
+        gsap.fromTo(
+          item,
           { x: -50, opacity: 0 },
           {
             scrollTrigger: {
@@ -106,14 +125,15 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
             opacity: 1,
             duration: 0.5,
             delay: i * 0.1,
-            ease: "power2.out"
+            ease: "power2.out",
           }
         );
       });
 
       // Projects Animation
       gsap.utils.toArray(".project-card").forEach((card, i) => {
-        gsap.fromTo(card,
+        gsap.fromTo(
+          card,
           { y: 50, opacity: 0 },
           {
             scrollTrigger: {
@@ -124,13 +144,14 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
             opacity: 1,
             duration: 0.6,
             delay: i * 0.2,
-            ease: "power2.out"
+            ease: "power2.out",
           }
         );
       });
 
       // CTA Animation
-      gsap.fromTo(".cta-content",
+      gsap.fromTo(
+        ".cta-content",
         { scale: 0.9, opacity: 0 },
         {
           scrollTrigger: {
@@ -140,10 +161,9 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
           scale: 1,
           opacity: 1,
           duration: 0.6,
-          ease: "power2.out"
+          ease: "power2.out",
         }
       );
-
     }, mainRef);
 
     return () => ctx.revert();
@@ -156,23 +176,16 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <link rel="canonical" href={`https://pranavjoseph.com${location.pathname}`} />
-      <script type="application/ld+json">
-        {JSON.stringify(jsonLd)}
-      </script>
+      <JsonLd jsonLd={jsonLd} />
 
       <ScrollProgress />
       <div ref={mainRef} className="min-h-screen text-gray-900 dark:text-white transition-colors duration-300">
-
         {/* Services & Main Navigation Menu */}
         <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-40 w-[95%] max-w-5xl">
           <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-lg border border-white/20 dark:border-gray-700/50 p-2">
             <div className="flex flex-wrap items-center justify-center gap-2">
-
               {/* Home Link */}
-              <Link
-                to="/"
-                className="px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-              >
+              <Link to="/" className="px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
                 Start
               </Link>
 
@@ -182,14 +195,7 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
               {services.map((serviceItem) => {
                 const isActive = location.pathname === serviceItem.path;
                 return (
-                  <Link
-                    key={serviceItem.path}
-                    to={serviceItem.path}
-                    className={`px-3 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${isActive
-                      ? "bg-blue-600 text-white shadow-md shadow-blue-500/20 scale-105"
-                      : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
-                      }`}
-                  >
+                  <Link key={serviceItem.path} to={serviceItem.path} className={`px-3 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${isActive ? "bg-blue-600 text-white shadow-md shadow-blue-500/20 scale-105" : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"}`}>
                     <span className="mr-1.5 hidden sm:inline">{serviceItem.icon}</span>
                     {serviceItem.label}
                   </Link>
@@ -199,31 +205,20 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
               <div className="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-1 hidden sm:block"></div>
 
               {/* Site Links */}
-              <Link
-                to="/about"
-                className="px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-              >
+              <Link to="/about" className="px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
                 About
               </Link>
-              <Link
-                to="/contact"
-                className="px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-blue-600 dark:hover:bg-blue-400 hover:shadow-lg"
-              >
+              <Link to="/contact" className="px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-blue-600 dark:hover:bg-blue-400 hover:shadow-lg">
                 Contact
               </Link>
-
             </div>
           </div>
         </nav>
 
         {/* Hero Section - Added padding top for fixed nav */}
         <section className="hero-content text-center pt-32 pb-12 md:pt-40 md:pb-20 px-6 max-w-5xl mx-auto">
-          <div className="inline-block mb-6 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-800 dark:text-blue-200 text-sm font-semibold">
-            Available for Hire
-          </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">
-            Hire a {service}
-          </h1>
+          <div className="inline-block mb-6 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-800 dark:text-blue-200 text-sm font-semibold">Available for Hire</div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">Hire a {service}</h1>
           <p className="text-lg md:text-2xl text-gray-700 dark:text-gray-300 mb-10 leading-relaxed max-w-3xl mx-auto">{description}</p>
           <Link to="/contact" className="inline-block px-10 py-4 bg-blue-600 text-white rounded-xl font-semibold shadow-lg hover:bg-blue-700 dark:hover:bg-blue-500 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-lg">
             Let's Work Together 🚀
@@ -232,9 +227,7 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
 
         {/* Animated Statistics Section */}
         <section className="stats-section max-w-6xl mx-auto px-6 py-12 md:py-20 bg-gradient-to-br from-blue-50/50 via-transparent to-blue-50/50 dark:from-blue-900/10 dark:via-transparent dark:to-blue-900/10 rounded-3xl my-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900 dark:text-white">
-            By The Numbers 📊
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900 dark:text-white">By The Numbers 📊</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="stats-card text-center p-6 md:p-8 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-blue-100 dark:border-gray-700">
               <div className="text-6xl mb-4">💼</div>
@@ -263,9 +256,7 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
         {/* Interactive Tech Stack Cloud */}
         {techStack && techStack.length > 0 && (
           <section className="tech-stack-section max-w-6xl mx-auto px-6 py-12 md:py-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900 dark:text-white">
-              Tech Stack Mastery 🛠️
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900 dark:text-white">Tech Stack Mastery 🛠️</h2>
             <div className="tech-stack-container bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-gray-900 rounded-3xl p-8 shadow-2xl border border-blue-100 dark:border-gray-700">
               <TechStackCloud technologies={techStack} />
               <p className="text-center mt-8 text-gray-600 dark:text-gray-400 italic text-sm">
@@ -277,9 +268,7 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
 
         {/* Why Hire Me - Clean & Simple */}
         <section className="skills-section max-w-4xl mx-auto px-6 py-12 md:py-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900 dark:text-white">
-            Why Work With Me?
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900 dark:text-white">Why Work With Me?</h2>
           <div className="space-y-3">
             {skills.map((skill, i) => {
               // Extract emoji and text from skill string
@@ -300,9 +289,7 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
         {/* Projects / Case Studies */}
         {projects && projects.length > 0 && (
           <section className="projects-section max-w-6xl mx-auto px-6 py-12 md:py-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-gray-900 dark:text-white">
-              Recent Projects 💼
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-gray-900 dark:text-white">Recent Projects 💼</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {projects.map((proj, i) => (
                 <div key={i} className="project-card group p-8 bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-blue-100 dark:border-gray-600">
