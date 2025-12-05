@@ -118,7 +118,7 @@ function ContactPage() {
       </div>
 
       {/* Page Container */}
-      <div ref={containerRef} className="relative z-10 transition-colors duration-300 h-screen overflow-hidden flex flex-col">
+      <div ref={containerRef} className="relative z-10 transition-colors duration-300 h-screen overflow-y-auto overflow-x-hidden flex flex-col">
         {/* Header Section - Compact */}
         <div className="px-6 pt-20 pb-4 text-center max-w-4xl mx-auto flex-shrink-0">
           <div className="text-center md:text-left">
