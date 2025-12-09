@@ -180,40 +180,7 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
 
       <ScrollProgress />
       <div ref={mainRef} className="min-h-screen text-gray-900 dark:text-white transition-colors duration-300">
-        {/* Services & Main Navigation Menu */}
-        <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-40 w-[95%] max-w-5xl">
-          <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-lg border border-white/20 dark:border-gray-700/50 p-2">
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              {/* Home Link */}
-              <Link to="/" className="px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
-                Start
-              </Link>
 
-              <div className="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-1 hidden sm:block"></div>
-
-              {/* Service Links */}
-              {services.map((serviceItem) => {
-                const isActive = location.pathname === serviceItem.path;
-                return (
-                  <Link key={serviceItem.path} to={serviceItem.path} className={`px-3 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${isActive ? "bg-blue-600 text-white shadow-md shadow-blue-500/20 scale-105" : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"}`}>
-                    <span className="mr-1.5 hidden sm:inline">{serviceItem.icon}</span>
-                    {serviceItem.label}
-                  </Link>
-                );
-              })}
-
-              <div className="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-1 hidden sm:block"></div>
-
-              {/* Site Links */}
-              <Link to="/about" className="px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
-                About
-              </Link>
-              <Link to="/contact" className="px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-blue-600 dark:hover:bg-blue-400 hover:shadow-lg">
-                Contact
-              </Link>
-            </div>
-          </div>
-        </nav>
 
         {/* Hero Section - Added padding top for fixed nav */}
         <section className="hero-content text-center pt-32 pb-12 md:pt-40 md:pb-20 px-6 max-w-5xl mx-auto">
