@@ -1,36 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "./ThemeProvider";
+import Navbar from "./Navbar";
 
-function Layout({ children, showHomeLink = true }) {
+function Layout({ children }) {
   const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-300">
-      {/* Dark Mode Toggle Button - Fixed top right */}
-      <button
-        onClick={toggleTheme}
-        className="fixed top-4 right-4 md:top-6 md:right-6 z-50 p-2 md:p-3 bg-gray-200 rounded-full dark:bg-gray-900 shadow-lg hover:scale-110 transition-transform duration-200 text-xl md:text-2xl"
-        aria-label="Toggle dark mode"
-      >
-        {theme === "light" ? "🌙" : "☀️"}
-      </button>
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 font-sans">
+      <Navbar />
 
-      {/* Home Link - Fixed top left (optional) */}
-      {showHomeLink && (
-        <Link
-          to="/"
-          className="fixed top-4 left-4 md:top-6 md:left-6 z-50 p-2 md:p-3 bg-gray-200 rounded-full dark:bg-gray-900 shadow-lg hover:scale-110 transition-transform duration-200 text-xl md:text-2xl"
-          aria-label="Go to home"
-        >
-          🏡
-        </Link>
-      )}
-
-      {/* Page Content */}
-      {children}
+      {/* Spacing for fixed header */}
+      <div className={location.pathname === "/" ? "" : "pt-24"}>
+        {children}
+      </div>
     </div>
   );
 }
 
 export default Layout;
-
