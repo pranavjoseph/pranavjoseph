@@ -20,7 +20,7 @@ function AboutPage() {
             About Me
           </h1>
           <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-300">
-            I'm <strong className="text-blue-600 dark:text-blue-400">Pranav Joseph</strong>, a <strong className="text-blue-600 dark:text-blue-400">Full Stack Developer</strong> with <strong className="text-blue-600 dark:text-blue-400">7+ years of experience</strong> building and scaling web applications for global users. I specialize in <span className="text-blue-600 dark:text-blue-400 font-semibold">PHP (Laravel, Symfony), React, Vue, Node.js, and WordPress</span>. My mission is to craft secure, high-quality, and scalable digital solutions that help businesses grow.
+            I'm <strong className="text-blue-600 dark:text-blue-400">Pranav Joseph</strong>, a <Link to="/fullstack-developer" className="text-blue-600 dark:text-blue-400 font-bold hover:underline">Full Stack Developer</Link> with <strong className="text-blue-600 dark:text-blue-400">7+ years of experience</strong> building and scaling web applications for global users. I specialize in <span className="text-blue-600 dark:text-blue-400 font-semibold"><Link to="/php-developer" className="hover:underline">PHP</Link> (<Link to="/laravel-developer" className="hover:underline">Laravel</Link>, Symfony), <Link to="/react-developer" className="hover:underline">React</Link>, Vue, <Link to="/nodejs-developer" className="hover:underline">Node.js</Link>, and <Link to="/wordpress-developer" className="hover:underline">WordPress</Link></span>. My mission is to craft secure, high-quality, and scalable digital solutions that help businesses grow.
           </p>
         </section>
 
@@ -33,12 +33,12 @@ function AboutPage() {
             <div className="group relative p-8 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-blue-100 dark:border-gray-600">
               <div className="absolute top-0 right-0 w-20 h-20 bg-blue-200 dark:bg-blue-900/50 rounded-bl-full opacity-20 group-hover:opacity-30 transition-opacity"></div>
               <h3 className="font-bold text-xl mb-4 text-blue-800 dark:text-blue-300">Frontend</h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">React.js, Vue.js, HTML5, CSS3, TailwindCSS</p>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed"><Link to="/react-developer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">React.js</Link>, Vue.js, HTML5, CSS3, TailwindCSS</p>
             </div>
             <div className="group relative p-8 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-blue-100 dark:border-gray-600">
               <div className="absolute top-0 right-0 w-20 h-20 bg-blue-200 dark:bg-blue-900/50 rounded-bl-full opacity-20 group-hover:opacity-30 transition-opacity"></div>
               <h3 className="font-bold text-xl mb-4 text-blue-800 dark:text-blue-300">Backend</h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">PHP (Laravel, Symfony), Node.js, Express.js</p>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed"><Link to="/php-developer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">PHP</Link> (<Link to="/laravel-developer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Laravel</Link>, Symfony), <Link to="/nodejs-developer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Node.js</Link>, Express.js</p>
             </div>
             <div className="group relative p-8 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-blue-100 dark:border-gray-600">
               <div className="absolute top-0 right-0 w-20 h-20 bg-blue-200 dark:bg-blue-900/50 rounded-bl-full opacity-20 group-hover:opacity-30 transition-opacity"></div>
