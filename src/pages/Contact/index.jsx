@@ -169,11 +169,11 @@ function ContactPage() {
             <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-white/20 dark:border-gray-700 p-6 rounded-3xl shadow-xl w-full">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Get In Touch</h3>
               <div className="space-y-4">
-                <a href="mailto:pranavjoseph69@gmail.com" className="contact-link group flex items-center space-x-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300">
+                <a href="mailto:hello@pranavjoseph.com" className="contact-link group flex items-center space-x-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300">
                   <span className="text-2xl group-hover:scale-110 transition-transform duration-300">📧</span>
                   <div>
                     <p className="text-xs text-gray-500 dark:text-gray-400 font-semibold">Email Me</p>
-                    <p className="font-mono text-sm text-gray-800 dark:text-gray-200">pranavjoseph69@gmail.com</p>
+                    <p className="font-mono text-sm text-gray-800 dark:text-gray-200">hello@pranavjoseph.com</p>
                   </div>
                 </a>
 
