@@ -1,6 +1,11 @@
-/sitemap.xml  /sitemap.xml  200
-/robots.txt   /robots.txt   200
-/static/*     /static/:splat  200
-/assets/*     /assets/:splat  200
-/*.js         /:splat        200
-/*            /index.html    200
+# SEO files
+/sitemap.xml      /sitemap.xml      200
+/robots.txt       /robots.txt       200
+
+# Static assets
+/static/*         /static/:splat    200
+/assets/*         /assets/:splat    200
+/components/*     /components/:splat 200
+
+# SPA catch-all (must be last)
+*                 /index.html      200
