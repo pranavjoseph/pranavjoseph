@@ -10,12 +10,12 @@ function PhpDevPage() {
       skills={["🐘 7+ years developing PHP applications with modern PHP 7+ and PHP 8", "🔧 Framework expertise: Laravel, Symfony, CodeIgniter, and custom PHP solutions", "🛡️ Security-first development: input validation, SQL injection prevention, XSS protection", "📡 RESTful API development and third-party integrations", "🗄️ Database expertise: MySQL, PostgreSQL with optimization and query tuning", "⚡ Performance optimization: caching strategies, code optimization, and scalability"]}
       projects={[
         {
-          name: "Kolekt - Waste Management Platform",
+          name: "Waste Management Platform",
           description: "Complete waste recycling platform built with Laravel 10 (PHP), featuring multi-user roles, payment integration, and real-time notifications.",
           link: false,
         },
         {
-          name: "Carteron - Real Estate Portal",
+          name: "Real Estate Portal",
           description: "Comprehensive real estate platform with Laravel backend, featuring property search, map integration, and user management.",
           link: false,
         },

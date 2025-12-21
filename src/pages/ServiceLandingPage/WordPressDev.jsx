@@ -20,7 +20,7 @@ function WordPressDevPage() {
           link: false,
         },
         {
-          name: "Danisense Sensor Technology",
+          name: "Sensor Technology Website",
           description: "Technology company website with product showcase and technical documentation.",
           link: false,
         },

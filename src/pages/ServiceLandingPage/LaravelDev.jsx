@@ -15,7 +15,7 @@ function LaravelDevPage() {
           link: false,
         },
         {
-          name: "Carteron - Real Estate Portal",
+          name: "Real Estate Portal",
           description: "Comprehensive real estate platform with Laravel backend, featuring property search, map integration, and user management.",
           link: false,
         },
