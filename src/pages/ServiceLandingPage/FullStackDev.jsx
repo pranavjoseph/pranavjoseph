@@ -10,12 +10,12 @@ function FullStackDev() {
       skills={["💻 7+ years building fullstack applications for global users", "🎨 Frontend: React.js, Vue.js, Angular, TailwindCSS, HTML5/CSS3", "⚙️ Backend: PHP (Laravel, Symfony), Node.js, Express.js, RESTful APIs", "🗄️ Databases: MySQL, MongoDB with optimization experience", "☁️ Cloud: AWS (EC2, S3, Cognito, CloudWatch), Docker, Serverless", "👥 Leadership: Mentoring junior developers, code reviews, client meetings", "🔄 Agile/Scrum experience with project estimation and CI/CD implementation"]}
       projects={[
         {
-          name: "Kolekt - Waste Management Platform",
+          name: "Waste Management Platform",
           description: "Platform for finding, selling, and buying waste materials in nearby locations for recyclers and households. Built with Laravel 10, Vue.js, and MySQL.",
           link: false,
         },
         {
-          name: "Carteron - Real Estate Portal",
+          name: "Real Estate Portal",
           description: "Real estate platform where users search properties and draw directly on maps to filter areas. Built with Laravel, Vue.js, MySQL, and Docker.",
           link: false,
         },
@@ -25,7 +25,7 @@ function FullStackDev() {
           link: false,
         },
         {
-          name: "Setellite - VFX Data Management",
+          name: "VFX Web & Mobile App",
           description: "Platform for collecting and registering on-set VFX data including scene, weather, location, camera, and reference data. Built with Vue.js.",
           link: false,
         },

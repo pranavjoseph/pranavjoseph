@@ -226,7 +226,7 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
                         View Project
                       </a>
                     ) : (
-                      <span className="text-xs font-bold text-gray-400 uppercase tracking-wide cursor-default self-start">Internal Project</span>
+                      <span className="text-xs font-bold text-gray-400 uppercase tracking-wide cursor-default self-start">🌟 Project</span>
                     )}
                   </div>
                   {/* Subtle side accent instead of bottom bar */}

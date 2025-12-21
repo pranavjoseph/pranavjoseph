@@ -11,13 +11,8 @@ function NodeJsDevPage() {
       techStack={["Node.js", "Express.js", "TypeScript", "JavaScript", "AWS", "Docker", "MySQL", "MongoDB", "REST APIs", "Serverless", "CI/CD", "CloudWatch"]}
       projects={[
         {
-          name: "Cyber Boxx Insurance Platform",
+          name: "A Canadian Cyber Insurance Provider Platform",
           description: "Administrative software for insurance domain with Underwriter portal, Broker portal, and security modules using Node.js, MySQL, Docker, and AWS services.",
-          link: false,
-        },
-        {
-          name: "Insurance Customer Portals",
-          description: "Multiple user portals (Boxx AXA, Zurich Kodak, Tunes Protect) for insurance customers with domain security features, built with Node.js and AWS Cognito.",
           link: false,
         },
         {
