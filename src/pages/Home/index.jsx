@@ -5,7 +5,9 @@ import HomeLoader from "../../components/HomeLoader";
 import gsap from "gsap";
 
 // Lazy load ThreeBackground
-const ThreeBackground = lazy(() => import("../../components/ThreeBackground"));
+// javascript-obfuscator:disable
+const ThreeBackground = lazy(() => import("../../components/ThreeBackground.jsx"));
+// javascript-obfuscator:enable
 
 function HomePage() {
   const [isLoading, setIsLoading] = useState(true);

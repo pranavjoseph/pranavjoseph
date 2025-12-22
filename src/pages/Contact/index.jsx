@@ -3,7 +3,9 @@ import Layout from "../../components/Layout";
 import { useState, useRef, useLayoutEffect, lazy, Suspense } from "react";
 import gsap from "gsap";
 // Lazy load ThreeBackground
-const ThreeBackground = lazy(() => import("../../components/ThreeBackground"));
+// javascript-obfuscator:disable
+const ThreeBackground = lazy(() => import("../../components/ThreeBackground.jsx"));
+// javascript-obfuscator:enable
 
 function ContactPage() {
   const [formData, setFormData] = useState({
