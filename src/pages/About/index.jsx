@@ -1,213 +1,197 @@
 import { Link } from "react-router-dom";
+import { FaReact, FaNodeJs, FaPhp, FaCloud, FaRocket, FaUsers, FaBookOpen } from "react-icons/fa";
 import Layout from "../../components/Layout";
+import AnimatedCounter from "../../components/AnimatedCounter";
+import TechStackCloud from "../../components/TechStackCloud";
+
+const timeline = [
+  {
+    role: "Senior Software Programmer",
+    company: "Bridge Global",
+    period: "2022 — Present",
+    summary: "Leading delivery across Node.js, Vue, and PHP stacks for UK clients with secure-by-default practices.",
+  },
+  {
+    role: "Full Stack Engineer",
+    company: "Cleffex Digital (Remote)",
+    period: "2023 — 2024",
+    summary: "Shipped SaaS modules with Laravel + Vue, hardened APIs to OWASP standards, and streamlined data flows.",
+  },
+  {
+    role: "Software Developer",
+    company: "Globosoft",
+    period: "2018 — 2022",
+    summary: "Built portals and ecommerce experiences with Laravel and REST, improving deployment runbooks and QA scripts.",
+  },
+];
+
+const focusAreas = [
+  { icon: <FaReact />, title: "Frontend", desc: "React, Next.js, Tailwind, and smooth GSAP micro-interactions." },
+  { icon: <FaNodeJs />, title: "Backend", desc: "Node.js, Express, REST/GraphQL APIs, auth, and performance tuning." },
+  { icon: <FaPhp />, title: "PHP/Laravel", desc: "Robust APIs, clean architectures, and WordPress custom builds." },
+  { icon: <FaCloud />, title: "Cloud & DevOps", desc: "AWS, Docker, CI/CD pipelines, observability, and security-first delivery." },
+];
+
+const values = [
+  { icon: <FaRocket />, title: "Speed with Intent", desc: "Ship fast without breaking trust—guardrails, tests, and observability baked in." },
+  { icon: <FaUsers />, title: "Human-Centered", desc: "Interfaces that feel obvious, inclusive, and respectful of user time and privacy." },
+  { icon: <FaBookOpen />, title: "Always Learning", desc: "Continuously refining craft across JS, PHP, and cloud to stay sharp for clients." },
+];
+
+const techStack = [
+  "React", "Next.js", "Node.js", "Express", "TypeScript", "PHP", "Laravel", "WordPress", "MySQL", "PostgreSQL", "MongoDB", "AWS", "Docker", "Tailwind CSS",
+];
 
 function AboutPage() {
   return (
     <Layout>
-      {/* SEO Tags */}
-      <title>About Pranav Joseph | Full Stack Developer in UK</title>
-      <meta name="description" content="Learn more about Pranav Joseph, a full stack developer with 7+ years of experience in PHP, React, Node.js, Laravel, WordPress, and AWS." />
-      <meta name="keywords" content="Pranav Joseph, full stack developer, freelance web developer London, React developer, Node.js, PHP, WordPress, AWS" />
+      <title>About Pranav Joseph | Full Stack Developer</title>
+      <meta name="description" content="Full stack developer crafting performant, secure web apps with React, Node.js, Laravel, and AWS. Based in the UK." />
 
-      {/* Page Wrapper */}
-      <main className="px-4 py-16 md:px-12 lg:px-20 text-gray-800 dark:text-gray-200 transition-colors duration-300">
-        {/* Hero Section */}
-        <section className="mb-20 text-center max-w-4xl mx-auto">
-          <div className="inline-block mb-6 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-800 dark:text-blue-200 text-sm font-semibold">
-            7+ Years of Experience
+      <main className="px-6 pt-20 pb-16 md:px-10 lg:px-16 max-w-6xl mx-auto text-white">
+        {/* Hero */}
+        <section className="text-center mb-16 md:mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm uppercase tracking-[0.2em] text-gray-300">
+            7+ Years Building Web Experiences
           </div>
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">
-            About Me
+          <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-black leading-tight">
+            About <span className="text-brand-red">Pranav Joseph</span>
           </h1>
-          <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-300">
-            I'm <strong className="text-blue-600 dark:text-blue-400">Pranav Joseph</strong>, a <Link to="/fullstack-developer" className="text-blue-600 dark:text-blue-400 font-bold hover:underline">Full Stack Developer</Link> with <strong className="text-blue-600 dark:text-blue-400">7+ years of experience</strong> building and scaling web applications for global users. I specialize in <span className="text-blue-600 dark:text-blue-400 font-semibold"><Link to="/php-developer" className="hover:underline">PHP</Link> (<Link to="/laravel-developer" className="hover:underline">Laravel</Link>, Symfony), <Link to="/react-developer" className="hover:underline">React</Link>, Vue, <Link to="/nodejs-developer" className="hover:underline">Node.js</Link>, and <Link to="/wordpress-developer" className="hover:underline">WordPress</Link></span>. My mission is to craft secure, high-quality, and scalable digital solutions that help businesses grow.
+          <p className="mt-4 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+            Full stack developer crafting fast, secure, and human-centered products across React, Node.js, PHP/Laravel, and AWS.
+            I collaborate closely with founders and teams to turn complex ideas into resilient, scalable software.
           </p>
-        </section>
-
-        {/* Skills */}
-        <section className="mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-gray-900 dark:text-white">
-            Technical Skills
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="group relative p-8 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-blue-100 dark:border-gray-600">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-blue-200 dark:bg-blue-900/50 rounded-bl-full opacity-20 group-hover:opacity-30 transition-opacity"></div>
-              <h3 className="font-bold text-xl mb-4 text-blue-800 dark:text-blue-300">Frontend</h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed"><Link to="/react-developer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">React.js</Link>, Vue.js, HTML5, CSS3, TailwindCSS</p>
-            </div>
-            <div className="group relative p-8 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-blue-100 dark:border-gray-600">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-blue-200 dark:bg-blue-900/50 rounded-bl-full opacity-20 group-hover:opacity-30 transition-opacity"></div>
-              <h3 className="font-bold text-xl mb-4 text-blue-800 dark:text-blue-300">Backend</h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed"><Link to="/php-developer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">PHP</Link> (<Link to="/laravel-developer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Laravel</Link>, Symfony), <Link to="/nodejs-developer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Node.js</Link>, Express.js</p>
-            </div>
-            <div className="group relative p-8 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-blue-100 dark:border-gray-600">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-blue-200 dark:bg-blue-900/50 rounded-bl-full opacity-20 group-hover:opacity-30 transition-opacity"></div>
-              <h3 className="font-bold text-xl mb-4 text-blue-800 dark:text-blue-300">Cloud & Tools</h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">AWS (EC2, S3, Cognito), Docker, Git, Linux, Jira</p>
-            </div>
+          <div className="mt-8 flex flex-wrap gap-4 justify-center">
+            <Link
+              to="/contact"
+              className="px-6 py-3 rounded-lg bg-brand-red text-white font-semibold hover:bg-red-600 transition-transform hover:-translate-y-0.5"
+            >
+              Book a Project Call
+            </Link>
+            <Link
+              to="/fullstack-developer"
+              className="px-6 py-3 rounded-lg border border-white/20 text-white font-semibold hover:border-brand-red hover:text-brand-red transition-colors"
+            >
+              View Services
+            </Link>
           </div>
         </section>
 
-        {/* Work Experience */}
-        <section className="mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-gray-900 dark:text-white">
-            Experience
-          </h2>
-          <div className="space-y-8 max-w-5xl mx-auto">
-            <div className="relative p-8 bg-gradient-to-br from-white to-blue-50/80 dark:from-gray-800 dark:to-gray-900/80 rounded-2xl shadow-xl ring-1 ring-gray-200/70 dark:ring-gray-700/80">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 md:mb-0">Bridge Global</h3>
-                <span className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-semibold">
-                  Jan 2022 – Present
-                </span>
+        {/* Stats */}
+        <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+          {[
+            { label: "Years", value: 7, suffix: "+" },
+            { label: "Projects", value: 50, suffix: "+" },
+            { label: "Clients", value: 30, suffix: "+" },
+            { label: "Satisfaction", value: 100, suffix: "%" },
+          ].map((stat, idx) => (
+            <div key={idx} className="glass-panel rounded-2xl p-4 text-center border border-white/10">
+              <div className="text-3xl font-bold text-brand-red">
+                <AnimatedCounter end={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="text-gray-600 dark:text-gray-400 mb-4 font-medium">Software Programmer • Kochi & Remote</p>
-              <div className="space-y-4 border border-blue-200 dark:border-blue-700 rounded-2xl p-4 bg-white/60 dark:bg-gray-900/30">
+              <p className="text-xs uppercase tracking-wide text-gray-300 mt-1">{stat.label}</p>
+            </div>
+          ))}
+        </section>
+
+        {/* Story + Values */}
+        <section className="grid md:grid-cols-2 gap-8 mb-16">
+          <div className="glass-panel rounded-2xl p-6 border border-white/10">
+            <h2 className="text-2xl font-bold mb-4">From Kerala to the UK</h2>
+            <p className="text-gray-300 leading-relaxed">
+              I’ve spent the last seven years building products across insurance, real estate, and SaaS—owning delivery from UX to production.
+              My edge is pairing polished interfaces with robust backends, keeping accessibility and security front-and-center.
+              Whether it’s an MVP sprint or a migration of a legacy stack, I bring structure, velocity, and calm execution.
+            </p>
+            <div className="mt-4 text-sm text-gray-400">
+              Currently based in Southampton, collaborating with teams across the UK and EU.
+            </div>
+          </div>
+          <div className="grid gap-4">
+            {values.map((item) => (
+              <div key={item.title} className="glass-panel rounded-2xl p-5 flex gap-3 items-start border border-white/10">
+                <div className="text-brand-red text-xl mt-1">{item.icon}</div>
                 <div>
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <p className="font-semibold text-gray-900 dark:text-white">Senior Software Programmer (Remote)</p>
-                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-100">Jun 2025 – Present</span>
-                  </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Owning feature delivery across Node.js, Vue.js, and PHP stacks while coordinating with UK clients and QA teams.</p>
-                </div>
-                <div>
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <p className="font-semibold text-gray-900 dark:text-white">Senior Software Programmer</p>
-                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-100">May 2024 – May 2025</span>
-                  </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Delivered secure APIs, led sprint planning, and mentored engineers on modern JavaScript tooling.</p>
-                </div>
-                <div>
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <p className="font-semibold text-gray-900 dark:text-white">Software Programmer</p>
-                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-100">Jan 2022 – Apr 2024</span>
-                  </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Built customer portals, automated deployments with Docker, and improved incident response playbooks.</p>
+                  <h3 className="font-semibold text-white">{item.title}</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </div>
-            </div>
-
-            <div className="relative p-8 bg-gradient-to-br from-white to-blue-50/80 dark:from-gray-800 dark:to-gray-900/80 rounded-2xl shadow-xl ring-1 ring-gray-200/70 dark:ring-gray-700/80">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 md:mb-0">ANGARD Staffing Solutions (Royal Mail)</h3>
-                <span className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-semibold">
-                  Apr 2025 – Present
-                </span>
-              </div>
-              <p className="text-gray-600 dark:text-gray-400 mb-4 font-medium">Postal Operations Services • Southampton, UK</p>
-              <ul className="mt-6 space-y-3 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
-                  <span>Coordinate logistics streams and ensure SLA adherence for Royal Mail sorting hubs.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
-                  <span>Apply incident-response mindset from engineering to streamline on-floor escalations.</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="relative p-8 bg-gradient-to-br from-white to-blue-50/80 dark:from-gray-800 dark:to-gray-900/80 rounded-2xl shadow-xl ring-1 ring-gray-200/70 dark:ring-gray-700/80">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 md:mb-0">Cleffex Digital Ltd</h3>
-                <span className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-semibold">
-                  Sep 2023 – May 2025
-                </span>
-              </div>
-              <p className="text-gray-600 dark:text-gray-400 mb-4 font-medium">Software Programmer • Remote</p>
-              <ul className="mt-6 space-y-3 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
-                  <span>Developed Laravel + Vue SaaS modules and optimized data flows powering B2B analytics.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
-                  <span>Partnered with cybersecurity teams to harden APIs using OWASP-aligned controls.</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="relative p-8 bg-gradient-to-br from-white to-blue-50/80 dark:from-gray-800 dark:to-gray-900/80 rounded-2xl shadow-xl ring-1 ring-gray-200/70 dark:ring-gray-700/80">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 md:mb-0">Globosoft</h3>
-                <span className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-semibold">
-                  Jan 2018 – Jan 2022
-                </span>
-              </div>
-              <p className="text-gray-600 dark:text-gray-400 mb-4 font-medium">Software Developer • Ernakulam, Kerala</p>
-              <ul className="mt-6 space-y-3 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
-                  <span>Delivered bespoke ecommerce builds with Laravel, OpenCart, and REST APIs.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
-                  <span>Integrated IoT telemetry pipelines and introduced automated QA scripts.</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="relative p-8 bg-gradient-to-br from-white to-blue-50/80 dark:from-gray-800 dark:to-gray-900/80 rounded-2xl shadow-xl ring-1 ring-gray-200/70 dark:ring-gray-700/80">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 md:mb-0">Microweb Solutions</h3>
-                <span className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-semibold">
-                  Jun 2017 – Dec 2017
-                </span>
-              </div>
-              <p className="text-gray-600 dark:text-gray-400 mb-4 font-medium">Junior Software Developer • Cochin, India</p>
-              <ul className="mt-6 space-y-3 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
-                  <span>Launched CMS-driven sites for regional SMBs using PHP and Bootstrap.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
-                  <span>Documented deployment runbooks and strengthened cross-team collaboration.</span>
-                </li>
-              </ul>
-            </div>
+            ))}
           </div>
         </section>
 
-        {/* Projects */}
-        <section className="mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-gray-900 dark:text-white">
-            Key Projects
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <div className="group p-8 bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-blue-100 dark:border-gray-600">
-              <div className="mb-4">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Kolekt</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">A waste recycling platform built for recyclers, households, and collection centers.</p>
+        {/* Focus Areas */}
+        <section className="mb-16">
+          <div className="flex items-center justify-between gap-4 mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold">What I Deliver</h2>
+            <span className="text-sm text-gray-400">Hands-on across front, back, and cloud</span>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {focusAreas.map((item) => (
+              <div key={item.title} className="glass-panel rounded-2xl p-5 border border-white/10 hover:border-brand-red transition-colors">
+                <div className="text-2xl text-brand-red mb-3">{item.icon}</div>
+                <h3 className="font-semibold text-white mb-2">{item.title}</h3>
+                <p className="text-gray-300 text-sm leading-relaxed">{item.desc}</p>
               </div>
-              <div className="flex flex-wrap gap-2 mt-4">
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-xs font-semibold">Laravel 10</span>
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-xs font-semibold">Vue</span>
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-xs font-semibold">MySQL</span>
-              </div>
-            </div>
-            <div className="group p-8 bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-blue-100 dark:border-gray-600">
-              <div className="mb-4">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">A Canadian Cyber Insurance Provider</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">Insurance admin software with portals for underwriters, brokers, and security modules.</p>
-              </div>
-              <div className="flex flex-wrap gap-2 mt-4">
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-xs font-semibold">Node.js</span>
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-xs font-semibold">React</span>
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-xs font-semibold">AWS</span>
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-xs font-semibold">Docker</span>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
-        {/* Contact CTA */}
-        <section className="text-center py-20 px-6 max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">Let's Work Together</h2>
-          <p className="mb-10 text-xl text-gray-600 dark:text-gray-400">Looking for a reliable full-stack developer? Let's talk about your project and how I can help.</p>
-          <Link to={"/contact"} className="inline-block px-10 py-4 bg-blue-600 text-white rounded-lg font-semibold shadow-md hover:bg-blue-700 dark:hover:bg-blue-500 hover:shadow-lg transition-all duration-200 text-lg">
-            Get in Touch
-          </Link>
+        {/* Tech Stack */}
+        <section className="mb-16 glass-panel rounded-2xl p-6 md:p-8 border border-white/10">
+          <div className="flex items-center justify-between flex-wrap gap-3 mb-6">
+            <div>
+              <h2 className="text-2xl font-bold text-white">Tools I Reach For</h2>
+              <p className="text-sm text-gray-400">Battle-tested stack for performant builds</p>
+            </div>
+            <Link to="/fullstack-developer" className="text-brand-red text-sm font-semibold hover:underline">
+              See services
+            </Link>
+          </div>
+          <TechStackCloud technologies={techStack} />
+        </section>
+
+        {/* Timeline */}
+        <section className="mb-16">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">Recent Journey</h2>
+          <div className="space-y-4">
+            {timeline.map((item) => (
+              <div key={item.company} className="glass-panel rounded-2xl p-5 border border-white/10">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div>
+                    <p className="text-sm text-brand-red uppercase tracking-wide">{item.period}</p>
+                    <h3 className="text-lg font-semibold text-white">{item.role}</h3>
+                    <p className="text-gray-400 text-sm">{item.company}</p>
+                  </div>
+                </div>
+                <p className="mt-3 text-gray-300 text-sm leading-relaxed">{item.summary}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="text-center glass-panel rounded-2xl p-8 border border-white/10">
+          <h2 className="text-3xl font-bold mb-3">Ready to build?</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto mb-6">
+            Let’s design, ship, and scale your next release. I can start with a roadmap session or jump directly into delivery.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link
+              to="/contact"
+              className="px-7 py-3 rounded-lg bg-brand-red text-white font-semibold hover:bg-red-600 transition-transform hover:-translate-y-0.5"
+            >
+              Contact Me
+            </Link>
+            <a
+              href="https://www.linkedin.com/in/pranav-joseph/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-7 py-3 rounded-lg border border-white/20 text-white font-semibold hover:border-brand-red hover:text-brand-red transition-colors"
+            >
+              LinkedIn
+            </a>
+          </div>
         </section>
       </main>
     </Layout>
