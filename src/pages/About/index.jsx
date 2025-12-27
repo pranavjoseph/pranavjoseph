@@ -1,8 +1,10 @@
+import { useEffect, useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { FaReact, FaNodeJs, FaPhp, FaCloud, FaRocket, FaUsers, FaBookOpen } from "react-icons/fa";
 import Layout from "../../components/Layout";
 import AnimatedCounter from "../../components/AnimatedCounter";
 import TechStackCloud from "../../components/TechStackCloud";
+const ThreeBackground = lazy(() => import("../../components/ThreeBackground"));
 
 const timeline = [
   {
@@ -43,12 +45,29 @@ const techStack = [
 ];
 
 function AboutPage() {
+  const [showBackground, setShowBackground] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mediaQuery.matches) return;
+    const timer = setTimeout(() => setShowBackground(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Layout>
       <title>About Pranav Joseph | Full Stack Developer</title>
       <meta name="description" content="Full stack developer crafting performant, secure web apps with React, Node.js, Laravel, and AWS. Based in the UK." />
 
-      <main className="px-6 pt-20 pb-16 md:px-10 lg:px-16 max-w-6xl mx-auto text-white">
+      {showBackground && (
+        <div className="fixed inset-0 z-0 opacity-50 pointer-events-none">
+          <Suspense fallback={null}>
+            <ThreeBackground />
+          </Suspense>
+        </div>
+      )}
+
+      <main className="relative z-10 px-6 pt-24 pb-16 md:px-10 lg:px-16 max-w-6xl mx-auto text-white">
         {/* Hero */}
         <section className="text-center mb-16 md:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm uppercase tracking-[0.2em] text-gray-300">
