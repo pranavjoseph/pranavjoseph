@@ -258,8 +258,8 @@ body {
   width: 14px;
   display: inline-block;
 }
-/* API flow timeline */
-.api-flow {
+/* Process flow timeline */
+.process-flow {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -269,14 +269,14 @@ body {
   justify-content: center;
 }
 
-.api-step {
+.process-step {
   display: flex;
   align-items: center;
   gap: 6px;
   white-space: nowrap;
 }
 
-.api-dot {
+.process-dot {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -288,24 +288,41 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
-.api-red { background: linear-gradient(135deg, #ff5f52, #ff3b30); }
-.api-orange { background: linear-gradient(135deg, #ff9f43, #ff7a1f); }
-.api-blue { background: linear-gradient(135deg, #4d9bff, #3576ff); }
-.api-purple { background: linear-gradient(135deg, #a26bff, #7e3ff2); }
+.process-red { background: linear-gradient(135deg, #ff5f52, #ff3b30); }
+.process-orange { background: linear-gradient(135deg, #ff9f43, #ff7a1f); }
+.process-blue { background: linear-gradient(135deg, #4d9bff, #3576ff); }
+.process-purple { background: linear-gradient(135deg, #a26bff, #7e3ff2); }
+.process-green { background: linear-gradient(135deg, #58d68d, #2ecc71); }
+.process-cyan { background: linear-gradient(135deg, #5ad1ff, #36a3ff); }
 
-.api-label {
+.process-label {
   color: #e5e7eb;
   font-size: 12px;
   font-weight: 600;
 }
 
-.api-connector {
+.process-connector {
   width: 36px;
   height: 3px;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.25), rgba(255, 59, 48, 0.4));
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.15), rgba(255, 59, 48, 0.5), rgba(255, 255, 255, 0.15));
+  position: relative;
+  overflow: hidden;
 }
 
+.process-connector::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  transform: translateX(-100%);
+  animation: connectorGlow 2.2s linear infinite;
+}
+
+@keyframes connectorGlow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
 @keyframes heroPulse {
   0% {
     text-shadow: 0 0 6px rgba(255, 255, 255, 0.25);

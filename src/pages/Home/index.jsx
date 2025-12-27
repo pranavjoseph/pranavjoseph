@@ -4,6 +4,7 @@ import HomeLoader from "../../components/HomeLoader";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown, FaReact, FaNodeJs, FaDatabase, FaCloud } from "react-icons/fa";
+import ProcessFlow from "../../components/ProcessFlow";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -236,23 +237,19 @@ function HomePage() {
               <div className="work-item glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group cursor-pointer">
                 <h3 className="text-2xl font-bold mb-3 group-hover:text-brand-red transition-colors">Web Applications</h3>
                 <div className="bg-gradient-to-br from-brand-red/10 via-brand-black to-transparent rounded-lg mt-6 mb-6 p-1">
-                  <div className="api-flow">
-                    {[
-                      { label: "Planning", color: "red" },
-                      { label: "Design", color: "orange" },
-                      { label: "Implementation", color: "blue" },
-                      { label: "Testing", color: "purple" },
-                      { label: "Deployment", color: "orange" },
-                      { label: "Maintenance", color: "blue" },
-                    ].map((step, idx, arr) => (
-                      <div key={step.label} className="api-step">
-                        {idx !== 0 && <div className="api-connector" />}
-                        <div className={`api-dot api-${step.color}`}>{idx + 1}</div>
-                        <span className="api-label">{step.label}</span>
-                        {idx !== arr.length - 1 && <div className="api-connector" />}
-                      </div>
-                    ))}
-                  </div>
+                  <ProcessFlow
+                    steps={[
+                      { label: "Genuine Idea", color: "red" },
+                      { label: "Market Research", color: "orange" },
+                      { label: "Define Functionality", color: "blue" },
+                      { label: "Design Sketches", color: "purple" },
+                      { label: "Wireframes & Prototypes", color: "blue" },
+                      { label: "Validate", color: "green" },
+                      { label: "Choose Technology", color: "cyan" },
+                      { label: "Host on Web", color: "orange" },
+                      { label: "Deploy", color: "red" },
+                    ]}
+                  />
                 </div>
                 <p className="text-gray-400 mb-4">Full-stack applications built with React, Node.js, and modern frameworks.</p>
                 <Link to="/fullstack-developer" className="text-brand-red hover:underline">
@@ -263,23 +260,16 @@ function HomePage() {
               <div className="work-item glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group cursor-pointer">
                 <h3 className="text-2xl font-bold mb-3 group-hover:text-brand-red transition-colors">API Development</h3>
                 <div className="bg-gradient-to-br from-brand-red/10 via-brand-black to-transparent rounded-lg mt-6 mb-6 p-1">
-                  <div className="api-flow">
-                    {[
+                  <ProcessFlow
+                    steps={[
                       { label: "Planning", color: "red" },
                       { label: "Design", color: "orange" },
                       { label: "Implementation", color: "blue" },
                       { label: "Testing", color: "purple" },
                       { label: "Deployment", color: "orange" },
                       { label: "Maintenance", color: "blue" },
-                    ].map((step, idx, arr) => (
-                      <div key={step.label} className="api-step">
-                        {idx !== 0 && <div className="api-connector" />}
-                        <div className={`api-dot api-${step.color}`}>{idx + 1}</div>
-                        <span className="api-label">{step.label}</span>
-                        {idx !== arr.length - 1 && <div className="api-connector" />}
-                      </div>
-                    ))}
-                  </div>
+                    ]}
+                  />
                 </div>
                 <p className="text-gray-400 mb-4">RESTful APIs and backend services for high-performance applications.</p>
                 <Link to="/nodejs-developer" className="text-brand-red hover:underline">
@@ -304,7 +294,7 @@ function HomePage() {
               <a href="https://linkedin.com/in/pranavjoseph" target="_blank" rel="noopener noreferrer" className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all">
                 <FaLinkedin className="text-3xl" />
               </a>
-              <a href="mailto:contact@pranavjoseph.com" className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all">
+              <a href="mailto:hello@pranavjoseph.com" className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all">
                 <FaEnvelope className="text-3xl" />
               </a>
             </div>
