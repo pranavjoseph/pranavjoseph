@@ -149,6 +149,102 @@ body {
   transition: transform 0.3s ease;
 }
 
+.brand-theme {
+  background-color: #050505;
+  color: #e5e7eb;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.brand-theme main,
+.brand-theme section {
+  background: transparent !important;
+}
+
+.brand-theme a {
+  color: #ff3b30;
+}
+
+.brand-theme .text-gray-900,
+.brand-theme .text-gray-800,
+.brand-theme .text-gray-700,
+.brand-theme .dark\:text-white {
+  color: #f8fafc !important;
+}
+
+.brand-theme .text-gray-600,
+.brand-theme .text-gray-500,
+.brand-theme .dark\:text-gray-300,
+.brand-theme .dark\:text-gray-400 {
+  color: #cbd5e1 !important;
+}
+
+.brand-theme [class*="text-blue-"] {
+  color: #ff3b30 !important;
+}
+
+.brand-theme [class*="bg-blue-"],
+.brand-theme [class*="bg-gray-"],
+.brand-theme [class*="bg-white"],
+.brand-theme [class*="bg-slate-"] {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.brand-theme .text-blue-600,
+.brand-theme .text-blue-700,
+.brand-theme .text-blue-800,
+.brand-theme .dark\:text-blue-400,
+.brand-theme .dark\:text-blue-200 {
+  color: #ff3b30 !important;
+}
+
+.brand-theme .bg-white,
+.brand-theme .bg-gray-50,
+.brand-theme .bg-white\/90,
+.brand-theme .bg-white\/80,
+.brand-theme .bg-blue-50,
+.brand-theme .dark\:bg-gray-800,
+.brand-theme .dark\:bg-gray-900,
+.brand-theme .dark\:bg-gray-800\/50,
+.brand-theme .dark\:bg-gray-700\/50,
+.brand-theme .bg-gray-100,
+.brand-theme .dark\:bg-gray-700,
+.brand-theme .dark\:bg-gray-900\/30 {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(10px);
+}
+
+.brand-theme .bg-blue-100,
+.brand-theme .bg-blue-200,
+.brand-theme .dark\:bg-blue-900\/50 {
+  background-color: rgba(255, 59, 48, 0.14) !important;
+}
+
+.brand-theme .border-gray-100,
+.brand-theme .border-gray-200,
+.brand-theme .border-gray-300,
+.brand-theme .border-blue-100,
+.brand-theme .dark\:border-gray-700,
+.brand-theme .dark\:border-gray-800 {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.brand-theme .shadow-sm,
+.brand-theme .shadow-lg,
+.brand-theme .shadow-xl {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45) !important;
+}
+
+.brand-theme .bg-gradient-to-r,
+.brand-theme .bg-gradient-to-br {
+  background-image: linear-gradient(120deg, rgba(255, 59, 48, 0.12), rgba(255, 59, 48, 0.05)) !important;
+}
+
+.brand-theme .glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .hero-letter {
   display: inline-block;
   position: relative;

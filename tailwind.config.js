@@ -12,7 +12,7 @@ export default {
                 space: ['"Space Grotesk"', 'sans-serif'],
             },
             colors: {
-                'brand-red': '#FF1F1F',
+                'brand-red': '#FF3B30', // brighter red for better contrast on dark backgrounds
                 'brand-black': '#050505',
                 'brand-dark-gray': '#121212',
             },
