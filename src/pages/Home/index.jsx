@@ -139,7 +139,6 @@ function HomePage() {
 
   return (
     <div className="relative w-full min-h-screen bg-brand-black text-white font-space overflow-x-hidden">
-
       {/* SEO Tags */}
       <title>Freelance Web Developer in London, Southampton & Woolston | PHP, WordPress, React & Node.js</title>
       <meta name="description" content="Pranav Joseph is a freelance full-stack developer near London, Southampton, and Woolston. Expert in PHP, WordPress, React, Node.js & SEO consulting." />
@@ -235,10 +234,26 @@ function HomePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="work-item glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group cursor-pointer">
-                <div className="bg-gradient-to-br from-brand-red/20 to-transparent h-48 rounded-lg mb-6 flex items-center justify-center">
-                  <span className="text-6xl opacity-30">🚀</span>
-                </div>
                 <h3 className="text-2xl font-bold mb-3 group-hover:text-brand-red transition-colors">Web Applications</h3>
+                <div className="bg-gradient-to-br from-brand-red/10 via-brand-black to-transparent rounded-lg mt-6 mb-6 p-1">
+                  <div className="api-flow">
+                    {[
+                      { label: "Planning", color: "red" },
+                      { label: "Design", color: "orange" },
+                      { label: "Implementation", color: "blue" },
+                      { label: "Testing", color: "purple" },
+                      { label: "Deployment", color: "orange" },
+                      { label: "Maintenance", color: "blue" },
+                    ].map((step, idx, arr) => (
+                      <div key={step.label} className="api-step">
+                        {idx !== 0 && <div className="api-connector" />}
+                        <div className={`api-dot api-${step.color}`}>{idx + 1}</div>
+                        <span className="api-label">{step.label}</span>
+                        {idx !== arr.length - 1 && <div className="api-connector" />}
+                      </div>
+                    ))}
+                  </div>
+                </div>
                 <p className="text-gray-400 mb-4">Full-stack applications built with React, Node.js, and modern frameworks.</p>
                 <Link to="/fullstack-developer" className="text-brand-red hover:underline">
                   View Projects →
@@ -246,10 +261,26 @@ function HomePage() {
               </div>
 
               <div className="work-item glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group cursor-pointer">
-                <div className="bg-gradient-to-br from-brand-red/20 to-transparent h-48 rounded-lg mb-6 flex items-center justify-center">
-                  <span className="text-6xl opacity-30">⚡</span>
-                </div>
                 <h3 className="text-2xl font-bold mb-3 group-hover:text-brand-red transition-colors">API Development</h3>
+                <div className="bg-gradient-to-br from-brand-red/10 via-brand-black to-transparent rounded-lg mt-6 mb-6 p-1">
+                  <div className="api-flow">
+                    {[
+                      { label: "Planning", color: "red" },
+                      { label: "Design", color: "orange" },
+                      { label: "Implementation", color: "blue" },
+                      { label: "Testing", color: "purple" },
+                      { label: "Deployment", color: "orange" },
+                      { label: "Maintenance", color: "blue" },
+                    ].map((step, idx, arr) => (
+                      <div key={step.label} className="api-step">
+                        {idx !== 0 && <div className="api-connector" />}
+                        <div className={`api-dot api-${step.color}`}>{idx + 1}</div>
+                        <span className="api-label">{step.label}</span>
+                        {idx !== arr.length - 1 && <div className="api-connector" />}
+                      </div>
+                    ))}
+                  </div>
+                </div>
                 <p className="text-gray-400 mb-4">RESTful APIs and backend services for high-performance applications.</p>
                 <Link to="/nodejs-developer" className="text-brand-red hover:underline">
                   View Services →
