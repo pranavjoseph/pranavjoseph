@@ -196,7 +196,7 @@ function HomePage() {
         </section>
 
         {/* About/Services Section */}
-        <section ref={aboutRef} className="relative z-10 py-32 px-6 pb-0 bg-gradient-to-b from-transparent via-white/5 to-transparent">
+        <section ref={aboutRef} className="relative z-10 py-32 px-6 pt-1 pb-0 bg-gradient-to-b from-transparent via-white/5 to-transparent">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center text-white">What I Do</h2>
 
