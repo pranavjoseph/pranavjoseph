@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown, FaReact, FaNodeJs, FaDatabase, FaCloud } from "react-icons/fa";
 import ProcessFlow from "../../components/ProcessFlow";
+import { SiNextdotjs } from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -201,29 +202,37 @@ function HomePage() {
             <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center text-white">What I Do</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="about-card glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group">
-                <FaReact className="text-5xl text-brand-red mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-2xl font-bold mb-3">Frontend</h3>
+              <Link to="/react-developer" className="about-card glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group block">
+                <div className="flex items-center gap-4">
+                  <FaReact className="text-5xl text-brand-red group-hover:scale-110 transition-transform" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3 mt-4">Frontend</h3>
                 <p className="text-gray-400">React, Next.js, and modern UI frameworks for beautiful, responsive interfaces.</p>
-              </div>
+              </Link>
 
-              <div className="about-card glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group">
-                <FaNodeJs className="text-5xl text-brand-red mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-2xl font-bold mb-3">Backend</h3>
+              <Link to="/nodejs-developer" className="about-card glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group block">
+                <div className="flex items-center gap-4">
+                  <FaNodeJs className="text-5xl text-brand-red mb-4 group-hover:scale-110 transition-transform" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3 mt-4">Backend</h3>
                 <p className="text-gray-400">Node.js, Express, and RESTful APIs for robust server-side solutions.</p>
-              </div>
+              </Link>
 
-              <div className="about-card glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group">
-                <FaDatabase className="text-5xl text-brand-red mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-2xl font-bold mb-3">Database</h3>
+              <Link to="/fullstack-developer" className="about-card glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group block">
+                <div className="flex items-center gap-4">
+                  <FaDatabase className="text-5xl text-brand-red group-hover:scale-110 transition-transform" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3 mt-4">Database</h3>
                 <p className="text-gray-400">MongoDB, PostgreSQL, and database design for efficient data management.</p>
-              </div>
+              </Link>
 
-              <div className="about-card glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group">
-                <FaCloud className="text-5xl text-brand-red mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-2xl font-bold mb-3">Cloud</h3>
+              <Link to="/fullstack-developer" className="about-card glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group block">
+                <div className="flex items-center gap-4">
+                  <FaCloud className="text-5xl text-brand-red group-hover:scale-110 transition-transform" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3 mt-4">Cloud</h3>
                 <p className="text-gray-400">AWS, Docker, and cloud deployment for scalable infrastructure.</p>
-              </div>
+              </Link>
             </div>
           </div>
         </section>
