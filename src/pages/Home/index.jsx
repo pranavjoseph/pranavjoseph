@@ -13,6 +13,7 @@ function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [showBackground, setShowBackground] = useState(false);
   const heroRef = useRef(null);
+  const heroNameRef = useRef(null);
   const aboutRef = useRef(null);
   const workRef = useRef(null);
   const contactRef = useRef(null);
@@ -40,66 +41,95 @@ function HomePage() {
 
   useEffect(() => {
     if (!isLoading) {
-      // Hero animations
-      gsap.from(heroRef.current.querySelector('.hero-name'), {
-        y: 100,
-        opacity: 0,
-        duration: 1.2,
-        ease: 'power4.out'
-      });
+      const ctx = gsap.context(() => {
+        // Hero name letter animation
+        const letters = heroNameRef.current?.querySelectorAll('.hero-letter');
+        if (letters && letters.length) {
+          gsap.from(letters, {
+            opacity: 0,
+            y: 30,
+            duration: 0.9,
+            stagger: 0.05,
+            ease: 'power3.out',
+          });
 
-      gsap.from(heroRef.current.querySelector('.hero-subtitle'), {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        delay: 0.3,
-        ease: 'power3.out'
-      });
+          gsap.to(letters, {
+            keyframes: {
+              "0%": { textShadow: "0 0 0px rgba(255,255,255,0.2)" },
+              "50%": { textShadow: "0 0 20px rgba(255,31,31,0.4), 0 0 35px rgba(255,255,255,0.3)" },
+              "100%": { textShadow: "0 0 0px rgba(255,255,255,0.2)" },
+            },
+            duration: 3,
+            repeat: -1,
+            yoyo: true,
+            stagger: { each: 0.08, from: "center" },
+            ease: "sine.inOut",
+          });
+        }
 
-      gsap.from(heroRef.current.querySelector('.hero-description'), {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        delay: 0.6,
-        ease: 'power3.out'
-      });
+        // Hero block fade/slide
+        gsap.from(heroRef.current.querySelector('.hero-name'), {
+          y: 100,
+          opacity: 0,
+          duration: 1.2,
+          ease: 'power4.out'
+        });
 
-      gsap.from(heroRef.current.querySelector('.hero-cta'), {
-        y: 20,
-        opacity: 0,
-        duration: 0.8,
-        delay: 0.9,
-        ease: 'power2.out'
-      });
+        gsap.from(heroRef.current.querySelector('.hero-subtitle'), {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+          delay: 0.3,
+          ease: 'power3.out'
+        });
 
-      // Scroll animations for sections
-      gsap.from(aboutRef.current.querySelectorAll('.about-card'), {
-        scrollTrigger: {
-          trigger: aboutRef.current,
-          start: 'top 70%',
-          toggleActions: 'play none none none',
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'power2.out',
-        clearProps: 'all'
-      });
+        gsap.from(heroRef.current.querySelector('.hero-description'), {
+          y: 30,
+          opacity: 0,
+          duration: 1,
+          delay: 0.6,
+          ease: 'power3.out'
+        });
 
-      gsap.from(workRef.current.querySelectorAll('.work-item'), {
-        scrollTrigger: {
-          trigger: workRef.current,
-          start: 'top 70%',
-          toggleActions: 'play none none none',
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: 'power2.out',
-        clearProps: 'all'
-      });
+        gsap.from(heroRef.current.querySelector('.hero-cta'), {
+          y: 20,
+          opacity: 0,
+          duration: 0.8,
+          delay: 0.9,
+          ease: 'power2.out'
+        });
+
+        // Scroll animations for sections
+        gsap.from(aboutRef.current.querySelectorAll('.about-card'), {
+          scrollTrigger: {
+            trigger: aboutRef.current,
+            start: 'top 70%',
+            toggleActions: 'play none none none',
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power2.out',
+          clearProps: 'all'
+        });
+
+        gsap.from(workRef.current.querySelectorAll('.work-item'), {
+          scrollTrigger: {
+            trigger: workRef.current,
+            start: 'top 70%',
+            toggleActions: 'play none none none',
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.15,
+          ease: 'power2.out',
+          clearProps: 'all'
+        });
+      }, heroRef);
+
+      return () => ctx.revert();
     }
   }, [isLoading]);
 
@@ -125,9 +155,30 @@ function HomePage() {
         {/* Hero Section */}
         <section ref={heroRef} className="relative z-10 min-h-screen flex flex-col justify-center items-center px-6 py-20 pb-0">
           <div className="max-w-5xl w-full text-center">
-            <h1 className="hero-name text-6xl md:text-8xl lg:text-9xl font-black mb-6 leading-tight">
-              PRANAV &nbsp;
-              <span className="text-red">JOSEPH</span>
+            <h1 ref={heroNameRef} className="hero-name text-6xl md:text-8xl lg:text-9xl font-black mb-6 leading-tight">
+              <span className="inline-block">
+                {"PRANAV".split("").map((char, idx) => (
+                  <span
+                    key={`first-${idx}`}
+                    className="hero-letter"
+                    style={{ "--i": idx }}
+                  >
+                    {char}
+                  </span>
+                ))}
+              </span>
+              <span className="inline-block hero-gap">&nbsp;</span>
+              <span className="inline-block">
+                {"JOSEPH".split("").map((char, idx) => (
+                  <span
+                    key={`last-${idx}`}
+                    className="hero-letter text-red"
+                    style={{ "--i": idx + 6 }}
+                  >
+                    {char}
+                  </span>
+                ))}
+              </span>
             </h1>
 
             <p className="hero-subtitle text-xl md:text-3xl text-gray-400 mb-8 tracking-wide">
