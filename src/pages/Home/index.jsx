@@ -1,24 +1,24 @@
 import { Link } from "react-router-dom";
-import Layout from "../../components/Layout";
 import { lazy, Suspense, useState, useEffect, useRef } from "react";
 import HomeLoader from "../../components/HomeLoader";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown, FaReact, FaNodeJs, FaDatabase, FaCloud } from 'react-icons/fa';
 
-// Lazy load ThreeBackground
+gsap.registerPlugin(ScrollTrigger);
+
 const ThreeBackground = lazy(() => import("../../components/ThreeBackground"));
 
 function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
-
-  const containerRef = useRef(null);
-  const titleRef = useRef(null);
-  const linksRef = useRef(null);
+  const heroRef = useRef(null);
+  const aboutRef = useRef(null);
+  const workRef = useRef(null);
+  const contactRef = useRef(null);
 
   useEffect(() => {
     const handleLoad = () => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 300);
+      setTimeout(() => setIsLoading(false), 500);
     };
 
     if (document.readyState === 'complete') {
@@ -26,142 +26,262 @@ function HomePage() {
     } else {
       window.addEventListener('load', handleLoad);
     }
-
-    return () => {
-      window.removeEventListener('load', handleLoad);
-    };
+    return () => window.removeEventListener('load', handleLoad);
   }, []);
 
   useEffect(() => {
     if (!isLoading) {
-      const ctx = gsap.context(() => {
-        // Title animation
-        gsap.from(titleRef.current, {
-          y: 50,
-          opacity: 0,
-          duration: 1,
-          ease: "power3.out",
-          delay: 0.2
-        });
+      // Hero animations
+      gsap.from(heroRef.current.querySelector('.hero-name'), {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power4.out'
+      });
 
-        // Links animation
-        gsap.from(linksRef.current.children, {
-          y: 20,
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: "back.out(1.7)",
-          delay: 0.6
-        });
-      }, containerRef);
+      gsap.from(heroRef.current.querySelector('.hero-subtitle'), {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.3,
+        ease: 'power3.out'
+      });
 
-      return () => ctx.revert();
+      gsap.from(heroRef.current.querySelector('.hero-description'), {
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        delay: 0.6,
+        ease: 'power3.out'
+      });
+
+      gsap.from(heroRef.current.querySelector('.hero-cta'), {
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.9,
+        ease: 'power2.out'
+      });
+
+      // Scroll animations for sections
+      gsap.from(aboutRef.current.querySelectorAll('.about-card'), {
+        scrollTrigger: {
+          trigger: aboutRef.current,
+          start: 'top 70%',
+          toggleActions: 'play none none none',
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power2.out',
+        clearProps: 'all'
+      });
+
+      gsap.from(workRef.current.querySelectorAll('.work-item'), {
+        scrollTrigger: {
+          trigger: workRef.current,
+          start: 'top 70%',
+          toggleActions: 'play none none none',
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: 'power2.out',
+        clearProps: 'all'
+      });
     }
   }, [isLoading]);
 
-  const handleMouseMove = (e) => {
-    const { clientX, clientY, currentTarget } = e;
-    const { left, top, width, height } = currentTarget.getBoundingClientRect();
-    const x = (clientX - left - width / 2) * 0.3; // Magnetic strength
-    const y = (clientY - top - height / 2) * 0.3;
-
-    gsap.to(currentTarget, {
-      x: x,
-      y: y,
-      scale: 1.1,
-      duration: 0.3,
-      ease: "power2.out"
-    });
-  };
-
-  const handleMouseLeave = (e) => {
-    gsap.to(e.currentTarget, {
-      x: 0,
-      y: 0,
-      scale: 1,
-      duration: 0.5,
-      ease: "elastic.out(1, 0.3)"
-    });
+  const scrollToContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <div ref={containerRef}>
+    <div className="relative w-full min-h-screen bg-brand-black text-white font-space overflow-x-hidden">
       {isLoading && <HomeLoader />}
 
-      {/* SEO Tags */}
-      <title>Freelance Web Developer in London, Southampton & Woolston | PHP, WordPress, React & Node.js</title>
-      <meta name="description" content="Pranav Joseph is a freelance full-stack developer near London, Southampton, and Woolston. Expert in PHP, WordPress, React, Node.js & SEO consulting." />
-      <meta name="keywords" content="freelance web developer London, Southampton, Woolston, SEO freelance, WordPress freelancer, PHP developer, React developer, Node.js freelancer" />
-
-      {/* Main Content */}
-      <header className="relative flex flex-col justify-center items-center min-h-screen py-20 text-center transition-colors duration-300">
+      {/* Background Layer */}
+      <div className="fixed inset-0 z-0">
         <Suspense fallback={null}>
-          <ThreeBackground />
+          <ThreeBackground forceDark={true} />
         </Suspense>
+      </div>
 
-        <Link to="/about">
-          <h1 ref={titleRef} className="text-3xl md:text-5xl font-extrabold text-blue-800 dark:text-blue-200 mb-6 cursor-pointer px-4">
-            Hello, I'm Pranav Joseph{" "}
-            <span role="img" aria-label="waving hand" className="inline-block animate-wave origin-[70%_70%]">
-              👋
-            </span>
-          </h1>
-        </Link>
+      {/* Content Wrapper */}
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <section ref={heroRef} className="relative z-10 min-h-screen flex flex-col justify-center items-center px-6 py-20 pb-0">
+          <div className="max-w-5xl w-full text-center">
+            <h1 className="hero-name text-6xl md:text-8xl lg:text-9xl font-black mb-6 leading-tight">
+              PRANAV &nbsp;
+              <span className="text-red">JOSEPH</span>
+            </h1>
 
-        <div ref={linksRef} className="flex flex-wrap items-center justify-center gap-3 md:gap-4 text-lg md:text-xl px-4">
-          <Link
-            to="/nodejs-developer"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            className="px-4 py-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 font-semibold shadow-sm"
-          >
-            💻 Software Developer
-          </Link>
-          <span className="text-gray-400 dark:text-gray-500">|</span>
-          <Link
-            to="/about"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            className="px-4 py-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 font-semibold shadow-sm"
-          >
-            ⚡ Tech Enthusiast
-          </Link>
-          <span className="text-gray-400 dark:text-gray-500">|</span>
-          <Link
-            to="/fullstack-developer"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            className="px-4 py-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 font-semibold shadow-sm"
-          >
-            🛠️ Full-Stack Developer
-          </Link>
-          <span className="text-gray-400 dark:text-gray-500">|</span>
-          <Link
-            to="/contact"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            className="px-4 py-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 font-semibold shadow-sm"
-          >
-            <span className="animate-pulse">🤝</span> Hire Me
-          </Link>
-        </div>
+            <p className="hero-subtitle text-xl md:text-3xl text-gray-400 mb-8 tracking-wide">
+              Full Stack Developer & Creative Technologist
+            </p>
 
-        {/* Hidden SEO Content */}
-        <div className="sr-only">
-          <h2>Freelance Developer near London</h2>
-          <p>
-            I am <strong>Pranav Joseph</strong>, a <strong>freelance developer near London</strong> providing <strong>SEO freelance</strong> and <strong>web development services</strong>. I help businesses and startups improve their search visibility and grow online.
-          </p>
-          <p>
-            My expertise includes <strong>PHP development, WordPress customization, Node.js applications, and React front-end solutions</strong>. Whether you need a <strong>developer freelancer</strong> to create scalable web apps, optimize your website for SEO, or build an e-commerce store, I can help.
-          </p>
-          <p>
-            Services I offer: full-stack web development, <strong>SEO consulting</strong>, <strong>WordPress website development</strong>, <strong>custom PHP solutions</strong>, <strong>React & Node.js applications</strong>, API integrations, and cloud deployment. I specialize in supporting small businesses and individuals looking for a reliable <strong>freelancer near London</strong>.
-          </p>
-        </div>
-      </header>
+            <p className="hero-description text-base md:text-lg text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">
+              Building scalable web applications with modern technologies.
+              Specializing in PHP, Node.js, React and cloud infrastructure.
+            </p>
+
+            <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button
+                onClick={scrollToContact}
+                className="px-8 py-4 bg-brand-red text-white rounded-lg font-semibold hover:bg-red-600 transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,31,31,0.5)]"
+              >
+                Get In Touch
+              </button>
+            </div>
+
+            <div className="mt-16 animate-bounce">
+              <FaArrowDown className="mx-auto text-gray-600 text-2xl" />
+            </div>
+          </div>
+        </section>
+
+        {/* About/Services Section */}
+        <section ref={aboutRef} className="relative z-10 py-32 px-6 pb-0 bg-gradient-to-b from-transparent via-white/5 to-transparent">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center text-white">
+              What I Do
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="about-card glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group">
+                <FaReact className="text-5xl text-brand-red mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-2xl font-bold mb-3">Frontend</h3>
+                <p className="text-gray-400">
+                  React, Next.js, and modern UI frameworks for beautiful, responsive interfaces.
+                </p>
+              </div>
+
+              <div className="about-card glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group">
+                <FaNodeJs className="text-5xl text-brand-red mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-2xl font-bold mb-3">Backend</h3>
+                <p className="text-gray-400">
+                  Node.js, Express, and RESTful APIs for robust server-side solutions.
+                </p>
+              </div>
+
+              <div className="about-card glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group">
+                <FaDatabase className="text-5xl text-brand-red mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-2xl font-bold mb-3">Database</h3>
+                <p className="text-gray-400">
+                  MongoDB, PostgreSQL, and database design for efficient data management.
+                </p>
+              </div>
+
+              <div className="about-card glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group">
+                <FaCloud className="text-5xl text-brand-red mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-2xl font-bold mb-3">Cloud</h3>
+                <p className="text-gray-400">
+                  AWS, Docker, and cloud deployment for scalable infrastructure.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Work Section */}
+        <section ref={workRef} className="relative z-10 py-32 px-6 pb-0 bg-gradient-to-b from-transparent via-brand-red/5 to-transparent">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center text-white">
+              Featured Work
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="work-item glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group cursor-pointer">
+                <div className="bg-gradient-to-br from-brand-red/20 to-transparent h-48 rounded-lg mb-6 flex items-center justify-center">
+                  <span className="text-6xl opacity-30">🚀</span>
+                </div>
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-brand-red transition-colors">
+                  Web Applications
+                </h3>
+                <p className="text-gray-400 mb-4">
+                  Full-stack applications built with React, Node.js, and modern frameworks.
+                </p>
+                <Link to="/fullstack-developer" className="text-brand-red hover:underline">
+                  View Projects →
+                </Link>
+              </div>
+
+              <div className="work-item glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group cursor-pointer">
+                <div className="bg-gradient-to-br from-brand-red/20 to-transparent h-48 rounded-lg mb-6 flex items-center justify-center">
+                  <span className="text-6xl opacity-30">⚡</span>
+                </div>
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-brand-red transition-colors">
+                  API Development
+                </h3>
+                <p className="text-gray-400 mb-4">
+                  RESTful APIs and backend services for high-performance applications.
+                </p>
+                <Link to="/nodejs-developer" className="text-brand-red hover:underline">
+                  View Services →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section ref={contactRef} className="relative z-10 py-32 px-6 bg-gradient-to-b from-transparent to-black">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white">
+              Let's Work Together
+            </h2>
+
+            <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+              Have a project in mind? Let's discuss how we can bring your ideas to life.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-6 mb-12">
+              <a
+                href="https://github.com/pranavjoseph"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all"
+              >
+                <FaGithub className="text-3xl" />
+              </a>
+              <a
+                href="https://linkedin.com/in/pranavjoseph"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all"
+              >
+                <FaLinkedin className="text-3xl" />
+              </a>
+              <a
+                href="mailto:contact@pranavjoseph.com"
+                className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all"
+              >
+                <FaEnvelope className="text-3xl" />
+              </a>
+            </div>
+
+            <Link
+              to="/contact"
+              className="inline-block px-12 py-5 bg-brand-red text-white rounded-lg font-semibold text-lg hover:bg-red-600 transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(255,31,31,0.6)]"
+            >
+              Send Message
+            </Link>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="relative z-10 py-8 px-6 border-t border-white/10">
+          <div className="max-w-6xl mx-auto text-center text-gray-500 text-sm">
+            <p>© 2025 Pranav Joseph. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }
 
 export default HomePage;
+

@@ -43,7 +43,7 @@ function Stars(props) {
     }
   });
 
-  const color = theme === 'dark' ? '#87CEFA' : '#1e3a8a'; // Dark blue for light theme
+  const color = '#FF1F1F'; // Brand Red
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
@@ -51,7 +51,7 @@ function Stars(props) {
         <PointMaterial
           transparent
           color={color}
-          size={0.005}
+          size={0.002} // Smaller, refined particles
           sizeAttenuation={true}
           depthWrite={false}
         />
@@ -61,9 +61,7 @@ function Stars(props) {
 }
 
 function ThreeBackground({ forceDark }) {
-  const { theme } = useTheme();
-  const isDark = forceDark || theme === 'dark';
-  const bgColor = isDark ? '#1f2937' : '#ffffff';
+  const bgColor = '#050505'; // Brand Black
 
   return (
     <div className="fixed top-0 left-0 w-full h-full -z-10 transition-colors duration-300" style={{ backgroundColor: bgColor }}>
