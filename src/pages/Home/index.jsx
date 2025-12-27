@@ -139,6 +139,10 @@ function HomePage() {
     contactRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const scrollToAbout = () => {
+    aboutRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="relative w-full min-h-screen bg-brand-black text-white font-space overflow-x-hidden">
       {/* SEO Tags */}
@@ -190,9 +194,9 @@ function HomePage() {
               </button>
             </div>
 
-            <div className="mt-16 animate-bounce">
-              <FaArrowDown className="mx-auto text-gray-600 text-2xl" />
-            </div>
+            <button onClick={scrollToAbout} className="mt-16 animate-bounce text-gray-600 hover:text-brand-red transition-colors" aria-label="Scroll to next section">
+              <FaArrowDown className="mx-auto text-2xl" />
+            </button>
           </div>
         </section>
 
@@ -297,13 +301,13 @@ function HomePage() {
             <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">Have a project in mind? Let's discuss how we can bring your ideas to life.</p>
 
             <div className="flex flex-wrap justify-center gap-6 mb-12">
-              <a href="https://github.com/pranavjoseph" target="_blank" rel="noopener noreferrer" className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all">
+              <a href="https://github.com/pranavjoseph" target="_blank" rel="noopener noreferrer" className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all" aria-label="Visit Pranav Joseph on GitHub">
                 <FaGithub className="text-3xl" />
               </a>
-              <a href="https://linkedin.com/in/pranavjoseph" target="_blank" rel="noopener noreferrer" className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all">
+              <a href="https://linkedin.com/in/pranavjoseph" target="_blank" rel="noopener noreferrer" className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all" aria-label="Visit Pranav Joseph on LinkedIn">
                 <FaLinkedin className="text-3xl" />
               </a>
-              <a href="mailto:hello@pranavjoseph.com" className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all">
+              <a href="mailto:hello@pranavjoseph.com" className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all" aria-label="Email Pranav Joseph">
                 <FaEnvelope className="text-3xl" />
               </a>
             </div>

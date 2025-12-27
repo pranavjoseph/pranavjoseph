@@ -16,8 +16,12 @@ a,
 /* Custom cursor */
 body {
   background-color: #050505;
-  color: white;
+  color: #f5f7fb;
   font-family: 'Space Grotesk', sans-serif;
+}
+
+p {
+  color: #e5e7eb;
 }
 
 /* Cyber Utilities */
@@ -175,7 +179,17 @@ body {
 .brand-theme .text-gray-500,
 .brand-theme .dark\:text-gray-300,
 .brand-theme .dark\:text-gray-400 {
-  color: #cbd5e1 !important;
+  color: #d8dde8 !important;
+}
+
+/* Boost contrast for lighter grays on dark backgrounds */
+.brand-theme .text-gray-400,
+.brand-theme .text-gray-300 {
+  color: #e2e8f0 !important;
+}
+
+.brand-theme p {
+  color: #e5e7eb !important;
 }
 
 .brand-theme [class*="text-blue-"] {

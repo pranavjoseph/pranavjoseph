@@ -167,6 +167,7 @@ function Navbar() {
                         <button
                             onClick={toggleTheme}
                             className="p-2 text-gray-200 hover:bg-white/10 rounded-full transition-colors"
+                            aria-label="Toggle dark mode"
                         >
                             {theme === "light" ? "🌙" : "☀️"}
                         </button>
