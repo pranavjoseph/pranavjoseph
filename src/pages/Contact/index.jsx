@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
-import { useState, useRef, useLayoutEffect, lazy, Suspense } from "react";
+import { useState, useRef, useLayoutEffect, lazy, Suspense, useEffect } from "react";
 import gsap from "gsap";
 // Lazy load ThreeBackground
 const ThreeBackground = lazy(() => import("../../components/ThreeBackground"));
@@ -15,6 +15,7 @@ function ContactPage() {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [isSending, setIsSending] = useState(false);
+  const [showBackground, setShowBackground] = useState(false);
 
   const containerRef = useRef(null);
   const formRef = useRef(null);
@@ -28,6 +29,13 @@ function ContactPage() {
       tl.fromTo(".contact-title", { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }).fromTo(".contact-desc", { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, "-=0.6").fromTo(".left-col", { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8 }, "-=0.4").fromTo(".right-col", { x: 50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8 }, "-=0.6").fromTo(".contact-link", { y: 20, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 0.5 }, "-=0.4");
     }, containerRef);
     return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches) return;
+    const timer = setTimeout(() => setShowBackground(true), 300);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleChange = (e) => {
@@ -103,11 +111,13 @@ function ContactPage() {
       <meta name="description" content="Get in touch with Pranav Joseph, freelance web developer." />
 
       {/* Three.js Background Layer */}
-      <div className="fixed inset-0 z-0 opacity-40 pointer-events-none">
-        <Suspense fallback={null}>
-          <ThreeBackground />
-        </Suspense>
-      </div>
+      {showBackground && (
+        <div className="fixed inset-0 z-0 opacity-40 pointer-events-none">
+          <Suspense fallback={null}>
+            <ThreeBackground />
+          </Suspense>
+        </div>
+      )}
 
       {/* Page Container */}
       <div ref={containerRef} className="relative z-10 transition-colors duration-300 h-screen overflow-y-auto overflow-x-hidden flex flex-col">

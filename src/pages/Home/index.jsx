@@ -11,6 +11,7 @@ const ThreeBackground = lazy(() => import("../../components/ThreeBackground"));
 
 function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
+  const [showBackground, setShowBackground] = useState(false);
   const heroRef = useRef(null);
   const aboutRef = useRef(null);
   const workRef = useRef(null);
@@ -27,6 +28,14 @@ function HomePage() {
       window.addEventListener('load', handleLoad);
     }
     return () => window.removeEventListener('load', handleLoad);
+  }, []);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches) return;
+
+    const timer = setTimeout(() => setShowBackground(true), 400);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -103,11 +112,13 @@ function HomePage() {
       {isLoading && <HomeLoader />}
 
       {/* Background Layer */}
-      <div className="fixed inset-0 z-0">
-        <Suspense fallback={null}>
-          <ThreeBackground forceDark={true} />
-        </Suspense>
-      </div>
+      {showBackground && (
+        <div className="fixed inset-0 z-0">
+          <Suspense fallback={null}>
+            <ThreeBackground forceDark={true} />
+          </Suspense>
+        </div>
+      )}
 
       {/* Content Wrapper */}
       <div className="relative z-10">
