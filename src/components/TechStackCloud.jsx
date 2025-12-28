@@ -53,16 +53,45 @@ const getSkillLevel = (tech) => {
   return { level: "Proficient", percentage: 78, emoji: "✨" };
 };
 
+const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
+
 const generateConstellation = (count) => {
-  const goldenAngle = Math.PI * (3 - Math.sqrt(5));
-  return Array.from({ length: count }).map((_, index) => {
-    const radius = 110 + index * 14;
-    const angle = index * goldenAngle + (index % 2 === 0 ? 0.3 : -0.25);
+  const goldenX = 0.61803398875;
+  const goldenY = 0.73205080757;
+
+  const points = Array.from({ length: count }).map((_, index) => {
+    const baseX = ((index * goldenX) % 1) * 80 + 10; // keep inside 10-90%
+    const baseY = ((index * goldenY) % 1) * 70 + 15; // keep inside 15-85%
+    const jitterX = Math.sin(index * 2.7) * 3;
+    const jitterY = Math.cos(index * 1.9) * 3;
     return {
-      x: Math.cos(angle) * radius,
-      y: Math.sin(angle) * radius,
+      x: baseX + jitterX,
+      y: baseY + jitterY,
     };
   });
+
+  // Simple relaxation to reduce overlaps (percent-based separation)
+  const minDist = 12;
+  for (let iter = 0; iter < 4; iter += 1) {
+    for (let i = 0; i < points.length; i += 1) {
+      for (let j = i + 1; j < points.length; j += 1) {
+        const dx = points[j].x - points[i].x;
+        const dy = points[j].y - points[i].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < minDist && dist > 0.001) {
+          const push = (minDist - dist) / dist;
+          const offsetX = dx * push * 0.5;
+          const offsetY = dy * push * 0.5;
+          points[i].x = clamp(points[i].x - offsetX, 6, 94);
+          points[i].y = clamp(points[i].y - offsetY, 10, 90);
+          points[j].x = clamp(points[j].x + offsetX, 6, 94);
+          points[j].y = clamp(points[j].y + offsetY, 10, 90);
+        }
+      }
+    }
+  }
+
+  return points;
 };
 
 function TechStackCloud({ technologies = [] }) {
@@ -164,7 +193,7 @@ function TechStackCloud({ technologies = [] }) {
           })}
         </div>
 
-        <div className="relative mt-4 h-[470px] overflow-hidden rounded-3xl border border-white/40 bg-slate-900/90 p-6 shadow-[0_25px_80px_-40px_rgba(0,0,0,0.7)] backdrop-blur-xl dark:border-white/10">
+        <div className="relative mt-4 h-[520px] overflow-hidden rounded-3xl border border-white/40 bg-slate-900/90 p-6 shadow-[0_25px_80px_-40px_rgba(0,0,0,0.7)] backdrop-blur-xl dark:border-white/10">
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(56,189,248,0.08),_transparent_55%)]" />
             <div className="absolute inset-6 rounded-3xl border border-white/5" />
@@ -186,10 +215,10 @@ function TechStackCloud({ technologies = [] }) {
                 key={`${tech}-${index}`}
                 className="absolute transition-all duration-700 ease-out"
                 style={{
-                  left: "50%",
-                  top: "50%",
+                  left: `${pos.x}%`,
+                  top: `${pos.y}%`,
                   transform: mounted
-                    ? `translate(${pos.x}px, ${pos.y}px) translate(-50%, -50%) scale(${isSelected ? 1.15 : isHovered ? 1.07 : 1})`
+                    ? `translate(-50%, -50%) scale(${isSelected ? 1.15 : isHovered ? 1.07 : 1})`
                     : "translate(-50%, -50%) scale(0.5)",
                   opacity: mounted ? 1 : 0,
                   transitionDelay: `${index * 35}ms`,
@@ -236,8 +265,25 @@ function TechStackCloud({ technologies = [] }) {
             );
           })}
 
+          {/* Ambient badges to inhabit negative space */}
+          {[
+            { label: "Latency", value: "<100ms UK/EU", x: "12%", y: "16%" },
+            { label: "Uptime", value: "99.9% SLO", x: "88%", y: "18%" },
+            { label: "Release Cadence", value: "Ship every 2 weeks", x: "14%", y: "86%" },
+            { label: "Security", value: "OWASP + reviews", x: "86%", y: "84%" },
+          ].map((badge) => (
+            <div
+              key={badge.label}
+              className="pointer-events-none absolute z-[5] translate-x-[-50%] translate-y-[-50%] rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-xs text-white shadow-lg backdrop-blur-lg"
+              style={{ left: badge.x, top: badge.y }}
+            >
+              <div className="text-[10px] uppercase tracking-[0.22em] text-white/70">{badge.label}</div>
+              <div className="text-sm font-semibold">{badge.value}</div>
+            </div>
+          ))}
+
           {selectedTech !== null && filteredTechs[selectedTech] && (
-            <div className="absolute inset-x-4 bottom-4 flex flex-col gap-3 rounded-2xl border border-white/15 bg-white/10 p-4 text-sm text-white shadow-2xl backdrop-blur-2xl md:flex-row md:items-center md:justify-between">
+            <div className="absolute inset-x-4 bottom-4 z-[40] flex flex-col gap-3 rounded-2xl border border-white/15 bg-white/10 p-4 text-sm text-white shadow-2xl backdrop-blur-2xl md:flex-row md:items-center md:justify-between">
               <div className="space-y-1">
                 <p className="text-[11px] uppercase tracking-[0.25em] text-white/70">Selected Node</p>
                 <div className="text-xl font-semibold">{filteredTechs[selectedTech]}</div>
