@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown, FaReact, FaNodeJs, FaDatabase, FaCloud } from "react-icons/fa";
 import ProcessFlow from "../../components/ProcessFlow";
 import { SiNextdotjs } from "react-icons/si";
+import SEO from "../../components/SEO";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -145,10 +146,12 @@ function HomePage() {
 
   return (
     <div className="relative w-full min-h-screen bg-brand-black text-white font-space overflow-x-hidden">
-      {/* SEO Tags */}
-      <title>Freelance Web Developer in London, Southampton & Woolston | PHP, WordPress, React & Node.js</title>
-      <meta name="description" content="Pranav Joseph is a freelance full-stack developer near London, Southampton, and Woolston. Expert in PHP, WordPress, React, Node.js & SEO consulting." />
-      <meta name="keywords" content="freelance web developer London, Southampton, Woolston, SEO freelance, WordPress freelancer, PHP developer, React developer, Node.js freelancer" />
+      <SEO
+        title="Freelance Web Developer in London, Southampton & Woolston | PHP, WordPress, React & Node.js"
+        description="Pranav Joseph is a freelance full-stack developer near London, Southampton, and Woolston. Expert in PHP, WordPress, React, Node.js & SEO consulting."
+        keywords="freelance web developer London, Southampton, Woolston, SEO freelance, WordPress freelancer, PHP developer, React developer, Node.js freelancer"
+        canonicalPath="/"
+      />
 
       {isLoading && <HomeLoader />}
 
@@ -206,7 +209,7 @@ function HomePage() {
             <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center text-white">What I Do</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Link to="/react-developer" className="about-card glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group block">
+              <Link to="/frontend-developer" className="about-card glass-panel p-8 rounded-2xl hover:border-brand-red transition-all group block">
                 <div className="flex items-center gap-4">
                   <FaReact className="text-5xl text-brand-red group-hover:scale-110 transition-transform" />
                 </div>

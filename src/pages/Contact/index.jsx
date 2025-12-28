@@ -1,6 +1,7 @@
 import { useEffect, useState, lazy, Suspense } from "react";
-import Layout from "../../components/Layout";
 import { Link } from "react-router-dom";
+import Layout from "../../components/Layout";
+import SEO from "../../components/SEO";
 
 const ThreeBackground = lazy(() => import("../../components/ThreeBackground"));
 
@@ -73,8 +74,12 @@ function ContactPage() {
 
   return (
     <Layout showHomeLink={true}>
-      <title>Contact Freelance Web Developer | Pranav Joseph</title>
-      <meta name="description" content="Get in touch with Pranav Joseph, freelance web developer." />
+      <SEO
+        title="Contact Freelance Web Developer | Pranav Joseph"
+        description="Looking to collaborate on a new project? Reach out to Pranav Joseph for  freelance web application development services. Let's build something great together!"
+        canonicalPath="/contact"
+        keywords="contact freelance web developer, contact Pranav Joseph, hire web developer, php developer contact, react developer contact, wordpress developer contact"
+      />
 
       {showBackground && (
         <div className="fixed inset-0 z-0 opacity-40 pointer-events-none">
