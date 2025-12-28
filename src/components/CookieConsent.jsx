@@ -48,8 +48,9 @@ function CookieConsentBanner() {
                 if (typeof CookieConsent.acceptedCategory === "function") {
                     return CookieConsent.acceptedCategory(category);
                 }
-                if (typeof CookieConsent.allowedCategory === "function") {
-                    return CookieConsent.allowedCategory(category);
+                const prefs = CookieConsent.getUserPreferences?.();
+                if (prefs?.acceptedCategories?.includes(category)) {
+                    return true;
                 }
             } catch (e) {
                 return false;

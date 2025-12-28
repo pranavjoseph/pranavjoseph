@@ -1,13 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
-import { useTheme } from "./ThemeProvider";
+import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 
 function Layout({ children }) {
-  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 font-sans">
+    <div className="min-h-screen bg-gray-900 text-white transition-colors duration-300 font-sans">
       <Navbar />
 
       {/* Spacing for fixed header */}

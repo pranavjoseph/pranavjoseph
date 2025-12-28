@@ -46,17 +46,18 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
-      tl.fromTo(".hero-badge", { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" })
-        .fromTo(".hero-title", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, "-=0.3")
-        .fromTo(".hero-desc", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, "-=0.4")
-        .fromTo(".hero-cta", { scale: 0.95, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.5)" }, "-=0.2");
+      tl.fromTo(".hero-badge", { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }).fromTo(".hero-title", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, "-=0.3").fromTo(".hero-desc", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, "-=0.4").fromTo(".hero-cta", { scale: 0.95, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.5)" }, "-=0.2");
 
       gsap.utils.toArray(".reveal").forEach((el) => {
-        gsap.fromTo(el,
+        gsap.fromTo(
+          el,
           { y: 30, opacity: 0 },
           {
-            y: 0, opacity: 1, duration: 0.6, ease: "power2.out",
-            scrollTrigger: { trigger: el, start: "top 80%" }
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: { trigger: el, start: "top 80%" },
           }
         );
       });
@@ -103,21 +104,16 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
           </Suspense>
         </div>
       )}
-
       <ScrollProgress />
 
-      <div ref={mainRef} className="relative z-10 bg-brand-black min-h-screen text-white font-space overflow-x-hidden">
+      <div ref={mainRef} className="relative z-10 bg-brand-black min-h-screen text-white font-space overflow-hidden">
         {/* Hero */}
         <section className="relative pt-28 pb-16 px-6 md:px-10 lg:px-16 max-w-6xl mx-auto text-center">
-          <div className="hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs uppercase tracking-[0.2em] text-gray-300">
-            Available for Hire
-          </div>
+          <div className="hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs uppercase tracking-[0.2em] text-gray-300">Available for Hire</div>
           <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl font-black mt-4 leading-tight">
             Hire a <span className="text-brand-red">{service}</span>
           </h1>
-          <p className="hero-desc text-base md:text-lg text-gray-300 max-w-3xl mx-auto mt-4">
-            {description}
-          </p>
+          <p className="hero-desc text-base md:text-lg text-gray-300 max-w-3xl mx-auto mt-4">{description}</p>
           <div className="hero-cta mt-8 flex flex-wrap gap-4 justify-center">
             <Link to="/contact" className="px-7 py-3 rounded-lg bg-brand-red text-white font-semibold hover:bg-red-600 transition-transform hover:-translate-y-0.5">
               Start Your Project
@@ -150,16 +146,7 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
         {/* Tech Stack */}
         {techStack && techStack.length > 0 && (
           <section className="px-6 md:px-10 lg:px-16 max-w-6xl mx-auto mb-16 reveal">
-            <div className="glass-panel rounded-2xl p-6 md:p-8 border border-white/10">
-              <div className="flex items-center justify-between flex-wrap gap-3 mb-6">
-                <div>
-                  <h2 className="text-2xl font-bold text-white">Technical Expertise</h2>
-                  <p className="text-sm text-gray-400">Core technologies and tools</p>
-                </div>
-                <span className="text-sm text-brand-red font-semibold">Hands-on delivery</span>
-              </div>
-              <TechStackCloud technologies={techStack} />
-            </div>
+            <TechStackCloud technologies={techStack} />
           </section>
         )}
 
@@ -193,7 +180,9 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
                 {project.link && (
                   <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-brand-red hover:underline text-sm font-semibold">
                     View Project
-                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
                   </a>
                 )}
               </div>
@@ -205,20 +194,12 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
         <section className="px-6 md:px-10 lg:px-16 max-w-5xl mx-auto pb-16 reveal">
           <div className="glass-panel rounded-2xl p-8 border border-white/10 text-center">
             <h2 className="text-3xl font-bold mb-3">Ready to launch?</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto mb-6">
-              Let’s scope, build, and ship your next release with confidence—frontend polish, backend resilience, and cloud readiness included.
-            </p>
+            <p className="text-gray-300 max-w-2xl mx-auto mb-6">Let’s scope, build, and ship your next release with confidence—frontend polish, backend resilience, and cloud readiness included.</p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link
-                to="/contact"
-                className="px-7 py-3 rounded-lg bg-brand-red text-white font-semibold hover:bg-red-600 transition-transform hover:-translate-y-0.5"
-              >
+              <Link to="/contact" className="px-7 py-3 rounded-lg bg-brand-red text-white font-semibold hover:bg-red-600 transition-transform hover:-translate-y-0.5">
                 Contact Me
               </Link>
-              <Link
-                to="/about"
-                className="px-7 py-3 rounded-lg border border-white/20 text-white font-semibold hover:border-brand-red hover:text-brand-red transition-colors"
-              >
+              <Link to="/about" className="px-7 py-3 rounded-lg border border-white/20 text-white font-semibold hover:border-brand-red hover:text-brand-red transition-colors">
                 About Me
               </Link>
             </div>

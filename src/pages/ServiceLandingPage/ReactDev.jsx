@@ -10,7 +10,7 @@ function ReactDevPage() {
       skills={["⚛️ 7+ years building React applications with hooks, context, and modern patterns", "🎨 Expert in React ecosystem: Next.js, Redux, React Router, TailwindCSS", "📱 Responsive design with mobile-first approach and cross-browser compatibility", "⚡ Performance optimization: code splitting, lazy loading, and memoization", "🔧 TypeScript expertise for type-safe React applications", "🚀 Experience with React testing libraries and CI/CD integration"]}
       projects={[
         {
-          name: "A Canadian Cyber Insurance Platform",
+          name: "A Canadian Cyber Insurance Platforms",
           description: "Modern insurance admin portal built with React, Vite, and TailwindCSS. Features real-time data updates and responsive design for underwriters and brokers.",
           link: false,
         },

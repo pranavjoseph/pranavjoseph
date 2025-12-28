@@ -304,10 +304,10 @@ function HomePage() {
               <a href="https://github.com/pranavjoseph" target="_blank" rel="noopener noreferrer" className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all" aria-label="Visit Pranav Joseph on GitHub">
                 <FaGithub className="text-3xl" />
               </a>
-              <a href="https://linkedin.com/in/pranavjoseph" target="_blank" rel="noopener noreferrer" className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all" aria-label="Visit Pranav Joseph on LinkedIn">
+              <a href="https://www.linkedin.com/in/pranav-joseph/" target="_blank" rel="noopener noreferrer" className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all" aria-label="Visit Pranav Joseph on LinkedIn">
                 <FaLinkedin className="text-3xl" />
               </a>
-              <a href="mailto:hello@pranavjoseph.com" className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all" aria-label="Email Pranav Joseph">
+              <a href="/contact" className="p-4 glass-panel rounded-full hover:border-brand-red hover:scale-110 transition-all" aria-label="Email Pranav Joseph">
                 <FaEnvelope className="text-3xl" />
               </a>
             </div>

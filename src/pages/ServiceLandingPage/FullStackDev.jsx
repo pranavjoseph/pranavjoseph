@@ -8,6 +8,23 @@ function FullStackDev() {
       description="Versatile Freelance Full Stack Developer in Southampton. Expert in frontend (React, modern JS) and backend (Node.js, PHP, AWS). Complete web solutions from concept to deployment."
       keywords="freelance full stack developer Southampton, full stack engineer London, hire web developer UK, MERN stack developer, LAMP stack expert, custom software development Hampshire"
       skills={["💻 7+ years building fullstack applications for global users", "🎨 Frontend: React.js, Vue.js, Angular, TailwindCSS, HTML5/CSS3", "⚙️ Backend: PHP (Laravel, Symfony), Node.js, Express.js, RESTful APIs", "🗄️ Databases: MySQL, MongoDB with optimization experience", "☁️ Cloud: AWS (EC2, S3, Cognito, CloudWatch), Docker, Serverless", "👥 Leadership: Mentoring junior developers, code reviews, client meetings", "🔄 Agile/Scrum experience with project estimation and CI/CD implementation"]}
+      techStack={[
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Node.js",
+        "Express.js",
+        "Laravel",
+        "PHP",
+        "Tailwind CSS",
+        "Vite",
+        "MySQL",
+        "MongoDB",
+        "AWS",
+        "Docker",
+        "Serverless",
+        "CI/CD",
+      ]}
       projects={[
         {
           name: "Waste Management Platform",
@@ -27,6 +44,21 @@ function FullStackDev() {
         {
           name: "VFX Web & Mobile App",
           description: "Platform for collecting and registering on-set VFX data including scene, weather, location, camera, and reference data. Built with Vue.js.",
+          link: false,
+        },
+        {
+          name: "School Management System",
+          description: "Comprehensive school management system with modules for admissions, attendance, grading, and communication. Built with PHP (CodeIgniter) and HTML.",
+          link: false,
+        },
+        {
+          name: "Tourism Website",
+          description: "Tourism website for a popular travel destination, featuring interactive maps, event calendars, and booking systems. Built with PHP.",
+          link: false,
+        },
+        {
+          name: "Coperate Lead Management System",
+          description: "Lead management system for a corporate client to track and manage sales leads, customer interactions, and reporting. Built with Laravel.",
           link: false,
         },
         {

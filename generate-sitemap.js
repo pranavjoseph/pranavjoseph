@@ -15,6 +15,7 @@ const pages = [
   { url: "react-developer", changefreq: "monthly", priority: 0.8 },
   { url: "laravel-developer", changefreq: "monthly", priority: 0.8 },
   { url: "wordpress-developer", changefreq: "monthly", priority: 0.8 },
+  { url: "frontend-developer", changefreq: "monthly", priority: 0.8 },
 ];
 
 async function generateSitemap() {

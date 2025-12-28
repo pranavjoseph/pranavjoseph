@@ -2,11 +2,8 @@ import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 
-import { useTheme } from './ThemeProvider';
-
 function Stars(props) {
   const ref = useRef();
-  const { theme } = useTheme();
 
   const [sphere] = useMemo(() => {
     // Generate random points in a sphere manually to ensure no NaNs
