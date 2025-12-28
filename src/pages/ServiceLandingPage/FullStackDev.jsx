@@ -47,6 +47,21 @@ function FullStackDev() {
           link: false,
         },
         {
+          name: "School Management System",
+          description: "Comprehensive school management system with modules for admissions, attendance, grading, and communication. Built with PHP (CodeIgniter) and HTML.",
+          link: false,
+        },
+        {
+          name: "Tourism Website",
+          description: "Tourism website for a popular travel destination, featuring interactive maps, event calendars, and booking systems. Built with PHP.",
+          link: false,
+        },
+        {
+          name: "Coperate Lead Management System",
+          description: "Lead management system for a corporate client to track and manage sales leads, customer interactions, and reporting. Built with Laravel.",
+          link: false,
+        },
+        {
           name: "WordPress Projects Portfolio",
           description: "Multiple WordPress sites including Canada One Foundation, MedQAir medical consulting, and Danisense sensor technology platforms.",
           link: false,
