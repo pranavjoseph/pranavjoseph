@@ -11,8 +11,8 @@ function NodeJsDevPage() {
       techStack={["Node.js", "Express.js", "TypeScript", "JavaScript", "AWS", "Docker", "MySQL", "MongoDB", "REST APIs", "Serverless", "CI/CD", "CloudWatch"]}
       projects={[
         {
-          name: "A Canadian Cyber Insurance Provider Platform",
-          description: "Administrative software for insurance domain with Underwriter portal, Broker portal, and security modules using Node.js, MySQL, Docker, and AWS services.",
+          name: "A Canadian Cyber Insurance Platforms",
+          description: "Modern insurance admin portal built with Node, AWS Services (EC2, S3, Cognito, CloudWatch, SQS). Features real-time data updates and data monitoring services.",
           link: false,
         },
         {

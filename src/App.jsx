@@ -11,6 +11,7 @@ import PhpDevPage from "./pages/ServiceLandingPage/PhpDev";
 import ReactDevPage from "./pages/ServiceLandingPage/ReactDev";
 import LaravelDevPage from "./pages/ServiceLandingPage/LaravelDev";
 import WordPressDevPage from "./pages/ServiceLandingPage/WordPressDev";
+import FrontendDevPage from "./pages/ServiceLandingPage/FrontendDev";
 import AboutPage from "./pages/About";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/react-developer" element={<ReactDevPage />} />
         <Route path="/laravel-developer" element={<LaravelDevPage />} />
         <Route path="/wordpress-developer" element={<WordPressDevPage />} />
+        <Route path="/frontend-developer" element={<FrontendDevPage />} />
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>
