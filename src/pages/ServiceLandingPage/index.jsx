@@ -103,10 +103,9 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
           </Suspense>
         </div>
       )}
-
       <ScrollProgress />
 
-      <div ref={mainRef} className="relative z-10 bg-brand-black min-h-screen text-white font-space overflow-x-hidden">
+      <div ref={mainRef} className="relative z-10 bg-brand-black min-h-screen text-white font-space overflow-hidden">
         {/* Hero */}
         <section className="relative pt-28 pb-16 px-6 md:px-10 lg:px-16 max-w-6xl mx-auto text-center">
           <div className="hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs uppercase tracking-[0.2em] text-gray-300">
