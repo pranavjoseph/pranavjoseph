@@ -3,9 +3,11 @@ import { Link, useLocation } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Layout from "../../components/Layout";
+import SEO from "../../components/SEO";
 import AnimatedCounter from "../../components/AnimatedCounter";
 import TechStackCloud from "../../components/TechStackCloud";
 import ScrollProgress from "../../components/ScrollProgress";
+import { SITE_URL } from "../../utils/constants";
 
 const ThreeBackground = lazy(() => import("../../components/ThreeBackground"));
 
@@ -35,6 +37,8 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
   const location = useLocation();
   const mainRef = useRef(null);
   const [showBackground, setShowBackground] = useState(false);
+  const seoTitle = `${title} | Pranav Joseph`;
+  const canonicalUrl = `${SITE_URL}${location.pathname === "/" ? "/" : location.pathname.replace(/\/+$/, "")}`;
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -70,9 +74,9 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: `Pranav Joseph - ${service}`,
-    image: "https://pranavjoseph.com/preview.png",
+    image: `${SITE_URL}/preview.png`,
     description: description,
-    url: `https://pranavjoseph.com${location.pathname}`,
+    url: canonicalUrl,
     telephone: "+44 7979 652 283",
     address: {
       "@type": "PostalAddress",
@@ -91,10 +95,7 @@ function ServiceLandingPage({ service, title, description, keywords, skills, pro
 
   return (
     <Layout showHomeLink={false}>
-      <title>{`${title} | Pranav Joseph`}</title>
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
-      <link rel="canonical" href={`https://pranavjoseph.com${location.pathname}`} />
+      <SEO title={seoTitle} description={description} keywords={keywords} canonicalPath={location.pathname} />
       <JsonLd jsonLd={jsonLd} />
 
       {showBackground && (

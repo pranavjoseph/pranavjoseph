@@ -4,6 +4,7 @@ import { FaReact, FaNodeJs, FaPhp, FaCloud, FaRocket, FaUsers, FaBookOpen } from
 import Layout from "../../components/Layout";
 import AnimatedCounter from "../../components/AnimatedCounter";
 import TechStackCloud from "../../components/TechStackCloud";
+import SEO from "../../components/SEO";
 const ThreeBackground = lazy(() => import("../../components/ThreeBackground"));
 
 const timeline = [
@@ -56,8 +57,12 @@ function AboutPage() {
 
   return (
     <Layout>
-      <title>About Pranav Joseph | Full Stack Developer</title>
-      <meta name="description" content="Full stack developer crafting performant, secure web apps with React, Node.js, Laravel, and AWS. Based in the UK." />
+      <SEO
+        title="About Pranav Joseph | Experienced Full Stack Developer"
+        description="Full stack developer crafting performant, secure web apps with React, Node.js, Laravel, and AWS. Based in the UK."
+        canonicalPath="/about"
+        keywords="about Pranav Joseph, full stack developer UK, React Node Laravel AWS, web developer Southampton, software engineer UK, wordpress developer UK"
+      />
 
       {showBackground && (
         <div className="fixed inset-0 z-0 opacity-50 pointer-events-none">
